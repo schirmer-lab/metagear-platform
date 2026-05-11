@@ -73,6 +73,64 @@ export default defineConfig({
               }
             })();
 
+            // Wire up the landing-only theme switcher.
+            // Two buttons (Light / Dark). System preference decides the default
+            // on first visit; we only persist to localStorage once the user
+            // explicitly clicks one of the buttons.
+            // Same localStorage key as Starlight so the choice persists
+            // when the user navigates to docs pages.
+            (function () {
+              if (typeof window === 'undefined') return;
+              var KEY = 'starlight-theme';
+              function systemTheme () {
+                return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              }
+              function savedPref () {
+                var v = (typeof localStorage !== 'undefined' && localStorage.getItem(KEY)) || '';
+                return v === 'light' || v === 'dark' ? v : null;
+              }
+              function updatePressed (effective) {
+                var btns = document.querySelectorAll('.mg-theme-switch button');
+                for (var i = 0; i < btns.length; i++) {
+                  btns[i].setAttribute('aria-pressed', btns[i].dataset.mgTheme === effective ? 'true' : 'false');
+                }
+              }
+              function setExplicit (mode) {
+                document.documentElement.dataset.theme = mode;
+                if (typeof localStorage !== 'undefined') localStorage.setItem(KEY, mode);
+                updatePressed(mode);
+                if (window.StarlightThemeProvider && typeof window.StarlightThemeProvider.updatePickers === 'function') {
+                  window.StarlightThemeProvider.updatePickers(mode);
+                }
+              }
+              function init () {
+                var btns = document.querySelectorAll('.mg-theme-switch button');
+                if (!btns.length) return;
+                var saved = savedPref();
+                var effective = saved || systemTheme();
+                document.documentElement.dataset.theme = effective;
+                updatePressed(effective);
+                for (var i = 0; i < btns.length; i++) {
+                  btns[i].addEventListener('click', function (e) {
+                    setExplicit(e.currentTarget.dataset.mgTheme);
+                  });
+                }
+                // If no explicit preference is saved, follow the OS when it changes.
+                var mq = matchMedia('(prefers-color-scheme: dark)');
+                function onOSChange () {
+                  if (!savedPref()) {
+                    var sys = systemTheme();
+                    document.documentElement.dataset.theme = sys;
+                    updatePressed(sys);
+                  }
+                }
+                if (mq.addEventListener) mq.addEventListener('change', onOSChange);
+              }
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init, { once: true });
+              } else { init(); }
+            })();
+
             // Scroll-reveal for .mg-reveal — bails on reduced-motion or no IO.
             if (typeof window !== 'undefined' &&
                 'IntersectionObserver' in window &&

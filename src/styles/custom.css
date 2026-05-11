@@ -1070,6 +1070,72 @@ html.is-landing main {
   padding-top: 0 !important;
 }
 
+/* ----- Landing-only theme switcher (replaces the hidden header toggle) ----- */
+.mg-theme-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 200;
+  display: inline-flex;
+  gap: 1px;
+  padding: 3px;
+  background: var(--sl-color-bg);
+  border: 1px solid var(--mg-rule);
+  border-radius: 999px;
+  font-family: var(--mg-font-body);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 20px -12px rgba(0, 0, 0, 0.1);
+  /* Hidden by default; revealed only on landing */
+  display: none;
+}
+
+html.is-landing .mg-theme-switch {
+  display: inline-flex;
+}
+
+.mg-theme-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.45rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--mg-text-muted);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+  line-height: 0;
+}
+
+.mg-theme-switch button:hover {
+  color: var(--mg-text-strong);
+}
+
+.mg-theme-switch button[aria-pressed='true'] {
+  background: var(--mg-surface-2);
+  color: var(--sl-color-accent);
+}
+
+.mg-theme-switch button svg {
+  display: block;
+}
+
+@media (max-width: 30rem) {
+  .mg-theme-switch {
+    top: 0.65rem;
+    right: 0.65rem;
+  }
+
+  .mg-theme-switch button {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.35rem;
+  }
+}
+
 /* Site header wordmark sizing */
 .site-title {
   align-items: center;
