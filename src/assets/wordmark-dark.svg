@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" role="img" aria-label="MetaGEAR">
+  <defs>
+    <style>
+      .mg-mark { fill: none; stroke: #f5f5f7; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+      .mg-text { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 28px; fill: #f5f5f7; letter-spacing: -0.03em; }
+      .mg-text--em { font-style: italic; font-weight: 600; fill: #0d9488; }
+    </style>
+  </defs>
+  <g transform="translate(4, 4)">
+    <path class="mg-mark" d="M24 0 L46 12 L46 36 L24 48 L2 36 L2 12 Z"/>
+    <path class="mg-mark" d="M24 14 L36 21 L36 33 L24 40 L12 33 L12 21 Z"/>
+    <path class="mg-mark" d="M24 14 L24 26 L12 21"/>
+    <path class="mg-mark" d="M24 26 L36 21"/>
+    <path class="mg-mark" d="M24 26 L24 40"/>
+  </g>
+  <text x="60" y="36" class="mg-text">Meta<tspan class="mg-text--em">GEAR</tspan></text>
+</svg>

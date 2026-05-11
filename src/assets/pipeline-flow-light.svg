@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" role="img" aria-label="MetaGEAR Workflows pipeline: reads → quality control → taxonomic and functional profiling → gene-centric analysis → harmonized outputs.">
+  <defs>
+    <style>
+      :root { color: #14141a; }
+      .ink { stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .ink-soft { stroke: currentColor; fill: none; stroke-width: 1.5; opacity: 0.4; }
+      .accent-stroke { stroke: #0d9488; }
+      .accent-fill { fill: #0d9488; }
+      .accent-bg { fill: rgba(13, 148, 136, 0.07); }
+      .label-step { font: 700 10px 'Inter', system-ui, sans-serif; fill: #0d9488; letter-spacing: 0.16em; text-transform: uppercase; }
+      .label-name { font: 600 13px 'Inter', system-ui, sans-serif; fill: currentColor; }
+      .label-sub { font: 500 11px 'Inter', system-ui, sans-serif; fill: currentColor; opacity: 0.6; }
+    </style>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <!-- Row of stages: reads → QC → profiling → gene analysis → results -->
+  <!-- Stage 1: Reads -->
+  <g transform="translate(20, 100)">
+    <rect class="ink" x="0" y="0" width="76" height="100" rx="6" opacity="0.7"/>
+    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+      <line x1="10" y1="18" x2="62" y2="18"/>
+      <line x1="10" y1="32" x2="50" y2="32"/>
+      <line x1="10" y1="46" x2="64" y2="46"/>
+      <line x1="10" y1="60" x2="44" y2="60"/>
+      <line x1="10" y1="74" x2="60" y2="74"/>
+      <line x1="10" y1="88" x2="48" y2="88"/>
+    </g>
+    <text x="38" y="124" text-anchor="middle" class="label-step">FASTQ</text>
+  </g>
+  <line class="ink" x1="106" y1="150" x2="138" y2="150" marker-end="url(#arr2)" opacity="0.5"/>
+
+  <!-- Stage 2: QC -->
+  <g transform="translate(140, 110)">
+    <rect class="accent-bg" x="0" y="0" width="86" height="80" rx="10"/>
+    <rect class="accent-stroke" fill="none" stroke-width="1.5" x="0" y="0" width="86" height="80" rx="10"/>
+    <text x="43" y="32" text-anchor="middle" class="label-step">Step 1</text>
+    <text x="43" y="52" text-anchor="middle" class="label-name">QC</text>
+    <text x="43" y="69" text-anchor="middle" class="label-sub">trim · decontam</text>
+    <text x="43" y="104" text-anchor="middle" class="label-sub">Kneaddata · TrimGalore</text>
+  </g>
+  <line class="ink" x1="226" y1="150" x2="258" y2="150" marker-end="url(#arr2)" opacity="0.5"/>
+
+  <!-- Stage 3: Profiling -->
+  <g transform="translate(260, 110)">
+    <rect class="accent-bg" x="0" y="0" width="86" height="80" rx="10"/>
+    <rect class="accent-stroke" fill="none" stroke-width="1.5" x="0" y="0" width="86" height="80" rx="10"/>
+    <text x="43" y="32" text-anchor="middle" class="label-step">Step 2</text>
+    <text x="43" y="52" text-anchor="middle" class="label-name">Profiling</text>
+    <text x="43" y="69" text-anchor="middle" class="label-sub">taxa · function</text>
+    <text x="43" y="104" text-anchor="middle" class="label-sub">MetaPhlAn · HUMAnN</text>
+  </g>
+  <line class="ink" x1="346" y1="150" x2="378" y2="150" marker-end="url(#arr2)" opacity="0.5"/>
+
+  <!-- Stage 4: Gene analysis -->
+  <g transform="translate(380, 110)">
+    <rect class="accent-bg" x="0" y="0" width="86" height="80" rx="10"/>
+    <rect class="accent-stroke" fill="none" stroke-width="1.5" x="0" y="0" width="86" height="80" rx="10"/>
+    <text x="43" y="32" text-anchor="middle" class="label-step">Step 3</text>
+    <text x="43" y="52" text-anchor="middle" class="label-name">Gene analysis</text>
+    <text x="43" y="69" text-anchor="middle" class="label-sub">catalogs · contigs</text>
+    <text x="43" y="104" text-anchor="middle" class="label-sub">gene-centric workflow</text>
+  </g>
+  <line class="ink" x1="466" y1="150" x2="498" y2="150" marker-end="url(#arr2)" opacity="0.5"/>
+
+  <!-- Stage 5: Results -->
+  <g transform="translate(500, 100)">
+    <rect class="ink" x="0" y="0" width="46" height="100" rx="6" opacity="0.7"/>
+    <rect class="accent-fill" x="8" y="60" width="6" height="32"/>
+    <rect class="accent-fill" x="18" y="46" width="6" height="46"/>
+    <rect class="accent-fill" x="28" y="38" width="6" height="54"/>
+    <rect class="accent-fill" x="38" y="22" width="6" height="70" opacity="0.7"/>
+    <text x="23" y="124" text-anchor="middle" class="label-step">Results</text>
+  </g>
+
+  <!-- Top label -->
+  <text x="20" y="36" class="label-step">MetaGEAR Workflows</text>
+  <text x="20" y="58" class="label-sub" style="font-weight:500; font-size:13px;">From raw paired-end reads to harmonized analysis outputs.</text>
+</svg>

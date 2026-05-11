@@ -1,104 +1,63 @@
-# MetaGEAR
+# MetaGEAR Platform
 
-This is a command-l## Installatio# MetaGEAR
+This repository hosts the umbrella website for the **MetaGEAR Platform** — an integrated bioinformatics platform for microbiome research developed at the [Schirmer Lab](https://www.mls.ls.tum.de/en/mdi/home/).
 
-A command-line wrapper for the MetaGEAR Pipeline for high-throughput microbiome metagenomic analysis. It provides easy-to-use tools for installing, configuring, and launching the MetaGEAR Pipeline—a Nextflow/NF-Core pipeline that streamlines end-to-end microbiome metagenomic workflows from raw reads to functional annotation.
+The site is published at <https://schirmer-lab.github.io/metagear/>.
 
-## 🚀 Quick Start
+The platform consists of three components, each with its own repository:
 
-1. **Install**: `curl -L http://get-metagear.schirmerlab.de | bash`
-2. **Configure**: Review `~/.metagear/metagear.config` and `~/.metagear/metagear.env`
-3. **Download databases**: `metagear download_databases`
-4. **Run workflows**: `metagear qc_dna --input samples.csv`
+| Component | Where it lives | What it does |
+|-----------|----------------|--------------|
+| **MetaGEAR Workflows** | [schirmer-lab/metagear-pipeline](https://github.com/schirmer-lab/metagear-pipeline) | Nextflow / nf-core pipeline for end-to-end metagenomic analysis. |
+| **MetaGEAR Tools (CLI)** | [schirmer-lab/metagear-tools](https://github.com/schirmer-lab/metagear-tools) | Command-line wrapper and installer for the pipeline. |
+| **MetaGEAR Explorer** | [metagear-explorer.schirmerlab.de](https://metagear-explorer.schirmerlab.de) | Hosted web portal and REST API for querying curated microbial gene catalogs. Source is not publicly available. |
 
-For detailed instructions, see the [📖 Full Documentation](https://schirmer-lab.github.io/metagear/).
+This repository contains only the **platform-level website** (overview, getting started, component summaries, citation). Component-specific technical documentation lives in each component's repository.
 
----
+## Site
 
-## Features
+The site is built with [Astro](https://astro.build) and the [Starlight](https://starlight.astro.build) docs theme.
 
-- Easy installation and setup of the MetaGEAR Pipeline
-- Command-line interface for launching workflows
-- Quality control, trimming, and contamination removal workflows (Kneaddata, TrimGalore)
-- Microbial Profiling workflows (MetaPhlAn, HUMAnN)
-- Gene centric analysis workflows
-- Automated database management and downloads
-- Preview mode for script generation
+### Local development
 
-## Prerequisites
-
-- [Java 17+](https://ubuntu.com/tutorials/install-jre#2-installing-openjdk-jre)
-- [Nextflow 25+](https://www.nextflow.io/docs/latest/install.html#install-page)
-- [Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) or [Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-the-debian-ubuntu-package-using-apt)
-
-## Installation
-
-Install the latest release automatically:
 ```bash
-curl -L http://get-metagear.schirmerlab.de | bash
+npm install
+npm run dev          # http://localhost:4321/metagear
 ```
 
-Install a specific version:
+### Build
+
 ```bash
-curl -L http://get-metagear.schirmerlab.de | bash -s -- --pipeline 1.0
+npm run build        # outputs to dist/
+npm run preview      # serve the built site locally
 ```
 
-The installer automatically finds the latest release and sets resource limits to roughly 80% of your available CPUs and RAM (capped at 48 CPUs and 80 GB).
+### Deployment
 
-**⚠️ Important**: Review and customize `~/.metagear/metagear.config` and `~/.metagear/metagear.env` before running workflows.
+Pushes to `main` are built and deployed to GitHub Pages via the workflow in `.github/workflows/pages.yml`. The site is published under the `/metagear` path (configured via `base` in `astro.config.mjs`).
 
-➡️ **See [Installation Guide](https://schirmer-lab.github.io/metagear/quick-start/installation/) for detailed setup instructions**
+## Project layout
 
-## Basic Usage
-
-Download required databases:
-```bash
-metagear download_databases
+```
+.
+├── astro.config.mjs        # Astro + Starlight config (base path, sidebar, SEO)
+├── package.json
+├── public/                 # Static assets (favicon, og-image)
+├── src/
+│   ├── assets/             # Logo SVGs imported by config / pages
+│   ├── content/docs/       # Markdown/MDX pages — one per route
+│   ├── content.config.ts   # Starlight content collection
+│   └── styles/custom.css   # Theme overrides (palette, hero polish)
+├── .github/workflows/pages.yml
+└── legacy-docs/            # Previous Jekyll site, kept for reference
 ```
 
-Run workflows:
-```bash
-metagear qc_dna --input samples.csv
-metagear microbial_profiles --input samples.csv
-```
+## Content
 
-Generate scripts without execution (preview mode):
-```bash
-metagear qc_dna --input samples.csv -preview
-```
+The site is intentionally small. Adding a page = creating a Markdown file under `src/content/docs/` and adding it to the `sidebar` in `astro.config.mjs`. The landing page at `src/content/docs/index.mdx` uses Starlight's `splash` template; other pages use the default docs layout.
 
-Input CSV format:
-```csv
-sample,fastq_1,fastq_2
-SAMPLE-01,/path/to/sample1_R1.fastq.gz,/path/to/sample1_R2.fastq.gz
-SAMPLE-02,/path/to/sample2_R1.fastq.gz,/path/to/sample2_R2.fastq.gz
-```
+For deep component documentation (pipeline parameters, CLI flag reference, API endpoints), update the corresponding component repository — this site links out rather than duplicates.
 
-➡️ **See [Usage Guide](https://schirmer-lab.github.io/metagear/quick-start/usage/) for complete workflow documentation**
+## License
 
----
-
-## 📖 Documentation
-
-**Essential Guides:**
-- 🚀 [Quick Start](https://schirmer-lab.github.io/metagear/) - Get up and running fast
-- ⚙️ [Installation](https://schirmer-lab.github.io/metagear/quick-start/installation/) - Detailed installation options
-- 🔧 [Configuration](https://schirmer-lab.github.io/metagear/quick-start/configuration/) - Environment-specific setup
-- 📋 [Usage Examples](https://schirmer-lab.github.io/metagear/quick-start/usage/) - Workflow examples and parameters
-
-**Advanced Topics:**
-- 🔬 [Workflows](https://schirmer-lab.github.io/metagear/workflows/) - Detailed workflow documentation
-- 🛠️ [Development](https://schirmer-lab.github.io/metagear/developers/) - For contributors and developers
-<!-- - 🐛 [Troubleshooting](https://schirmer-lab.github.io/metagear/developers/TROUBLESHOOTING/) - Common issues and solutions -->
-
-## 📋 Support
-
-For help and support:
-- 📖 Check the [Documentation](https://schirmer-lab.github.io/metagear/)
-- 🐛 Browse the MetaGEAR Pipeline [existing issues](https://github.com/schirmer-lab/metagear-pipeline)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[MIT](LICENSE).

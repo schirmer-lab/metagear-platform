@@ -1,26 +1,24 @@
-# Runtime/build artifacts
-.metagear/
-metagear
-metagear.config
-metagear.env
-metagear_*.sh
-*.config
-.nextflow*
-results/
-.venv/
+# Astro build output
+dist/
+.astro/
 
-# Jekyll build files
-docs/_site/
-docs/.jekyll-cache/
-docs/.jekyll-metadata
-docs/.sass-cache/
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Ruby/Bundler files
-docs/Gemfile.lock
-docs/.bundle/
-docs/vendor/
+# Legacy Jekyll site (kept under legacy-docs/ for reference; build artifacts gitignored)
+legacy-docs/_site/
+legacy-docs/.jekyll-cache/
+legacy-docs/.jekyll-metadata
+legacy-docs/.sass-cache/
+legacy-docs/Gemfile.lock
+legacy-docs/.bundle/
+legacy-docs/vendor/
 
-# macOS files
+# Editor / OS
 .DS_Store
 .DS_Store?
 ._*
@@ -28,3 +26,5 @@ docs/vendor/
 .Trashes
 ehthumbs.db
 Thumbs.db
+.idea/
+.vscode/

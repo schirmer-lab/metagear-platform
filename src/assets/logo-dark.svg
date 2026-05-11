@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" role="img">
+  <!-- outer hexagon -->
+  <path d="M32 4 L56 18 L56 46 L32 60 L8 46 L8 18 Z" />
+  <!-- inner cube: three rhombi meeting at center -->
+  <path d="M32 20 L46 28 L46 44 L32 52 L18 44 L18 28 Z" />
+  <path d="M32 20 L32 36 L18 28" />
+  <path d="M32 36 L46 28" />
+  <path d="M32 36 L32 52" />
+</svg>

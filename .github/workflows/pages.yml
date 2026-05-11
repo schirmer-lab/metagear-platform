@@ -8,8 +8,12 @@ on:
       - feature/*
       - release/*
     paths:
-      - 'docs/**'
-      - 'Gemfile'
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -29,26 +33,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          ruby-version: '3.1'
-          bundler-cache: true
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        working-directory: docs
-        run: bundle install --path vendor/bundle
+        run: npm ci
 
       - name: Build site
-        working-directory: docs
-        env:
-          JEKYLL_ENV: production
-        run: bundle exec jekyll build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_site
+          path: dist
 
   deploy:
     needs: build

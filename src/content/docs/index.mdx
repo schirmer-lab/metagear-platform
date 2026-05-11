@@ -1,0 +1,264 @@
+---
+title: MetaGEAR Platform
+description: An integrated bioinformatics platform for microbiome research. A pipeline, a CLI, and a web portal — built at the Schirmer Lab.
+template: splash
+hero:
+  tagline: ''
+pagefind: false
+---
+
+
+<div class="mg-landing not-content">
+
+{/* ===================== HERO ===================== */}
+<section class="mg-hero mg-reveal">
+  <div class="mg-hero__glow" aria-hidden="true"></div>
+  <div class="mg-hero__inner">
+    <span class="mg-eyebrow">MetaGEAR Platform</span>
+    <h1 class="mg-hero__title">
+      Microbiome research,
+      <em>end&#8209;to&#8209;end.</em>
+    </h1>
+    <p class="mg-hero__lead">
+      A pipeline, a CLI, and a web portal — built at the Schirmer Lab to take
+      shotgun metagenomes from raw reads to biological hypotheses.
+    </p>
+    <div class="mg-actions">
+      <a class="mg-btn mg-btn--primary mg-btn--lg" href="https://metagear-explorer.schirmerlab.de">
+        Open MetaGEAR Explorer <span aria-hidden="true">↗</span>
+      </a>
+      <a class="mg-btn mg-btn--ghost mg-btn--lg" href="/metagear/get-started/">
+        Get started <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{/* ===================== EXPLORER SHOWCASE ===================== */}
+<section class="mg-showcase mg-reveal" aria-label="MetaGEAR Explorer preview">
+  <a class="mg-showcase__frame" href="https://metagear-explorer.schirmerlab.de" aria-label="Open MetaGEAR Explorer">
+    <img
+      src="/metagear/explorer-screenshot.png"
+      alt="MetaGEAR Explorer landing page showing gene-centric search across published microbiome cohorts."
+      loading="eager"
+    />
+    <div class="mg-showcase__url">metagear-explorer.schirmerlab.de</div>
+  </a>
+</section>
+
+{/* ===================== FEATURE 1 · EXPLORER ===================== */}
+<section class="mg-feature mg-reveal">
+  <div class="mg-feature__copy">
+    <span class="mg-eyebrow"><span class="mg-section-num">01</span>MetaGEAR Explorer · Web portal</span>
+    <h2 class="mg-feature__title">
+      Query bacterial genes against <em>thousands of metagenomic samples.</em>
+    </h2>
+    <p class="mg-feature__lead">
+      Bring a sequence, a Pfam domain, or an MSP identifier. Get back where
+      it shows up across uniformly-processed metagenomic cohorts covering IBD,
+      colorectal cancer, and healthy controls — with cohort and sample
+      metadata attached to every result.
+    </p>
+    <ul class="mg-feature__points">
+      <li><strong>BLAST</strong> a nucleotide or protein sequence against cohort-wide gene catalogs.</li>
+      <li><strong>Browse by Pfam domain</strong> (e.g. <code>PF08020</code>) to find every gene that contains it.</li>
+      <li><strong>Explore MSPs</strong> — curated Metagenomic Species Pangenomes.</li>
+      <li><strong>Filter by cohort</strong>: IBD, CRC, healthy controls. Every hit traces back to its sample.</li>
+    </ul>
+    <div class="mg-feature__meta">
+      <span>No install</span><span>Free hosted service</span><span>Seconds to first hit</span>
+    </div>
+    <div class="mg-actions">
+      <a class="mg-btn mg-btn--primary" href="https://metagear-explorer.schirmerlab.de">
+        Open Explorer <span aria-hidden="true">↗</span>
+      </a>
+      <a class="mg-btn mg-btn--link" href="/metagear/explorer/">More about Explorer →</a>
+    </div>
+  </div>
+
+  <div class="mg-feature__visual">
+    <div class="mg-cohorts" aria-label="Search examples">
+      <div class="mg-cohorts__row mg-cohorts__row--header">
+        <span>Query</span><span>Type</span><span>Cohorts</span>
+      </div>
+      <div class="mg-cohorts__row">
+        <span class="mg-cohorts__query">ATGCG…</span>
+        <span>BLAST sequence</span>
+        <span class="mg-cohorts__pill">24</span>
+      </div>
+      <div class="mg-cohorts__row">
+        <span class="mg-cohorts__query"><code>PF08020</code></span>
+        <span>Pfam domain</span>
+        <span class="mg-cohorts__pill">24</span>
+      </div>
+      <div class="mg-cohorts__row">
+        <span class="mg-cohorts__query"><code>msp_0023</code></span>
+        <span>MSP browse</span>
+        <span class="mg-cohorts__pill">24</span>
+      </div>
+      <div class="mg-cohorts__row mg-cohorts__row--footer">
+        <span>Active filters</span>
+        <span class="mg-cohorts__tag">IBD</span>
+        <span class="mg-cohorts__tag">CRC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ===================== FEATURE 2 · WORKFLOWS ===================== */}
+<section class="mg-feature mg-feature--reverse mg-section-alt mg-reveal">
+  <div class="mg-feature__copy">
+    <span class="mg-eyebrow"><span class="mg-section-num">02</span>MetaGEAR Workflows · Pipeline</span>
+    <h2 class="mg-feature__title">
+      One Nextflow pipeline, <em>four cohesive workflows.</em>
+    </h2>
+    <p class="mg-feature__lead">
+      Built on nf-core conventions. Take paired-end FASTQ files through quality
+      control, taxonomic and functional profiling, and gene-centric analysis —
+      reproducibly, on a laptop or an HPC cluster.
+    </p>
+    <ul class="mg-feature__points">
+      <li><strong>QC &amp; decontamination</strong> with Kneaddata and TrimGalore.</li>
+      <li><strong>Taxonomic profiling</strong> with MetaPhlAn.</li>
+      <li><strong>Functional profiling</strong> with HUMAnN.</li>
+      <li><strong>Gene-centric analysis</strong>, with optional contig catalog assembly.</li>
+    </ul>
+    <div class="mg-feature__meta">
+      <span>Nextflow ≥ 25</span><span>Docker or Singularity</span><span>MIT-licensed</span>
+    </div>
+    <div class="mg-actions">
+      <a class="mg-btn mg-btn--primary" href="/metagear/workflows/">Read the workflows guide →</a>
+      <a class="mg-btn mg-btn--link" href="https://github.com/schirmer-lab/metagear-pipeline">View source ↗</a>
+    </div>
+  </div>
+
+  <div class="mg-feature__visual">
+    <ol class="mg-pipeline" aria-label="Four cohesive workflows in MetaGEAR Workflows">
+      <li class="mg-pipeline__step">
+        <span class="mg-pipeline__num">01</span>
+        <div class="mg-pipeline__body">
+          <span class="mg-pipeline__name">Database setup</span>
+          <span class="mg-pipeline__sub">Reference DBs · Kneaddata · MetaPhlAn · HUMAnN</span>
+        </div>
+      </li>
+      <li class="mg-pipeline__step">
+        <span class="mg-pipeline__num">02</span>
+        <div class="mg-pipeline__body">
+          <span class="mg-pipeline__name">Quality control</span>
+          <span class="mg-pipeline__sub">Trim &amp; decontaminate · Kneaddata · TrimGalore</span>
+        </div>
+      </li>
+      <li class="mg-pipeline__step">
+        <span class="mg-pipeline__num">03</span>
+        <div class="mg-pipeline__body">
+          <span class="mg-pipeline__name">Microbial profiles</span>
+          <span class="mg-pipeline__sub">Taxonomic &amp; functional · MetaPhlAn · HUMAnN</span>
+        </div>
+      </li>
+      <li class="mg-pipeline__step">
+        <span class="mg-pipeline__num">04</span>
+        <div class="mg-pipeline__body">
+          <span class="mg-pipeline__name">Gene-centric analysis</span>
+          <span class="mg-pipeline__sub">Optional contig catalog assembly</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{/* ===================== FEATURE 3 · TOOLS (CLI) ===================== */}
+<section class="mg-feature mg-reveal">
+  <div class="mg-feature__copy">
+    <span class="mg-eyebrow"><span class="mg-section-num">03</span>MetaGEAR Tools · CLI</span>
+    <h2 class="mg-feature__title">
+      Install the pipeline. <em>Run a workflow.</em> Skip the Nextflow learning curve.
+    </h2>
+    <p class="mg-feature__lead">
+      MetaGEAR Tools is a tiny command-line wrapper that installs the
+      pipeline, detects your hardware, manages reference databases, and runs
+      workflows with one command.
+    </p>
+    <ul class="mg-feature__points">
+      <li><strong>Hardware-aware</strong>: sets resource limits to ~80% of available CPUs and RAM.</li>
+      <li><strong>Version-locked</strong>: installs the matching pipeline release.</li>
+      <li><strong>One install command</strong>, one run command per workflow.</li>
+    </ul>
+    <div class="mg-actions">
+      <a class="mg-btn mg-btn--primary" href="/metagear/tools/">Install MetaGEAR Tools →</a>
+      <a class="mg-btn mg-btn--link" href="https://github.com/schirmer-lab/metagear-tools">View source ↗</a>
+    </div>
+  </div>
+
+  <div class="mg-feature__visual">
+    <div class="mg-terminal" role="img" aria-label="Terminal showing MetaGEAR Tools install and run commands.">
+      <div class="mg-terminal__chrome">
+        <span class="mg-terminal__dot"></span>
+        <span class="mg-terminal__dot"></span>
+        <span class="mg-terminal__dot"></span>
+        <span class="mg-terminal__title">~/projects/microbiome</span>
+      </div>
+      <div class="mg-terminal__body">
+        <div><span class="comment"># Install MetaGEAR (one-time)</span></div>
+        <div><span class="prompt">$</span> <span class="cmd">curl -L http://get-metagear.schirmerlab.de | bash</span></div>
+        <div><span class="out">→ installed to ~/.metagear · 36 CPUs / 64 GB detected</span></div>
+        <div>&nbsp;</div>
+        <div><span class="comment"># Download reference databases</span></div>
+        <div><span class="prompt">$</span> <span class="cmd">metagear download_databases</span></div>
+        <div>&nbsp;</div>
+        <div><span class="comment"># Run a workflow</span></div>
+        <div><span class="prompt">$</span> <span class="cmd">metagear microbial_profiles --input samples.csv</span></div>
+        <div><span class="out">→ running MetaPhlAn + HUMAnN on </span><span class="accent">12 samples</span><span class="out">…</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ===================== PUBLICATIONS ===================== */}
+<section class="mg-pubs-section mg-section-alt mg-reveal" id="publications">
+  <div class="mg-pubs-section__head">
+    <span class="mg-eyebrow"><span class="mg-section-num">04</span>Publications</span>
+    <h2 class="mg-feature__title">
+      Cite the work that matches <em>what you used.</em>
+    </h2>
+  </div>
+
+  <div class="mg-publications">
+    <a class="mg-paper" href="https://www.biorxiv.org/content/10.64898/2026.03.30.715271">
+      <span class="mg-paper__venue">bioRxiv · 2026</span>
+      <h3 class="mg-paper__title">
+        MetaGEAR Explorer: rapid query of microbial genes across cohorts
+      </h3>
+      <p class="mg-paper__desc">
+        The Explorer portal and its underlying gene-centric query infrastructure.
+        Cite if you used Explorer or the API.
+      </p>
+      <div class="mg-paper__cite">10.64898/2026.03.30.715271</div>
+    </a>
+
+    <a class="mg-paper" href="https://www.biorxiv.org/content/10.1101/2025.09.29.679262v1">
+      <span class="mg-paper__venue">bioRxiv · 2025</span>
+      <h3 class="mg-paper__title">
+        Gene-centric methodology for metagenomic analysis
+      </h3>
+      <p class="mg-paper__desc">
+        The methodology underlying MetaGEAR Workflows' gene-centric analysis.
+        Cite if you used the pipeline or extended the methodology.
+      </p>
+      <div class="mg-paper__cite">10.1101/2025.09.29.679262</div>
+    </a>
+
+    <a class="mg-paper" href="https://www.nature.com/articles/s41564-025-02223-0">
+      <span class="mg-paper__venue">Nature Microbiology · 2025</span>
+      <h3 class="mg-paper__title">
+        An applied study using MetaGEAR Workflows
+      </h3>
+      <p class="mg-paper__desc">
+        A peer-reviewed study that applied the pipeline to a microbiome
+        research question. Cite alongside the methodology paper for similar work.
+      </p>
+      <div class="mg-paper__cite">s41564-025-02223-0</div>
+    </a>
+  </div>
+</section>
+
+</div>

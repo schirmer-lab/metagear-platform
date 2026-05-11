@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 540" role="img" aria-label="Two paths in MetaGEAR: process your own metagenomes through the pipeline, or query curated cohorts in the Explorer.">
+  <defs>
+    <style>
+      :root { color: #f4f4f1; }
+      .ink { stroke: currentColor; fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+      .ink-soft { stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.45; }
+      .accent-stroke { stroke: #0d9488; }
+      .accent-fill { fill: #0d9488; }
+      .accent-bg { fill: rgba(13, 148, 136, 0.08); }
+      .label-eyebrow { font: 700 11px 'Inter', system-ui, sans-serif; fill: #0d9488; letter-spacing: 0.16em; text-transform: uppercase; }
+      .label-name { font: 700 22px 'Inter', system-ui, sans-serif; fill: currentColor;  letter-spacing: -0.01em; }
+      .label-em { font: 600 22px 'Inter', system-ui, sans-serif; fill: #0d9488;  }
+      .label-tag { font: 500 12px 'Inter', system-ui, sans-serif; fill: currentColor; opacity: 0.6; letter-spacing: 0.02em; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"/>
+    </marker>
+  </defs>
+
+  <!-- TOP: your data → pipeline -->
+  <g transform="translate(0, 32)">
+    <text x="20" y="0" class="label-eyebrow">Your data</text>
+
+    <g transform="translate(20, 24)">
+      <rect class="ink" x="6" y="6" width="78" height="108" rx="6" opacity="0.35"/>
+      <rect class="ink" x="3" y="3" width="78" height="108" rx="6" opacity="0.6"/>
+      <rect class="ink" fill="rgba(13,148,136,0.04)" x="0" y="0" width="78" height="108" rx="6"/>
+      <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.8">
+        <line x1="12" y1="20" x2="66" y2="20"/>
+        <line x1="12" y1="34" x2="56" y2="34"/>
+        <line x1="12" y1="48" x2="66" y2="48"/>
+        <line x1="12" y1="62" x2="48" y2="62"/>
+        <line x1="12" y1="76" x2="62" y2="76"/>
+        <line x1="12" y1="90" x2="52" y2="90"/>
+      </g>
+    </g>
+
+    <line class="ink" x1="120" y1="78" x2="200" y2="78" marker-end="url(#arr)" opacity="0.55"/>
+
+    <g transform="translate(220, 18)">
+      <rect class="accent-bg" x="0" y="0" width="280" height="120" rx="14"/>
+      <rect class="accent-stroke" fill="none" stroke-width="1.5" x="0" y="0" width="280" height="120" rx="14"/>
+      <g transform="translate(34, 60)">
+        <circle class="accent-stroke" stroke-width="2" fill="none" r="14"/>
+        <circle class="accent-fill" r="3"/>
+        <g class="accent-stroke" stroke-width="2" stroke-linecap="round" fill="none">
+          <line x1="0" y1="-18" x2="0" y2="-23"/>
+          <line x1="0" y1="18" x2="0" y2="23"/>
+          <line x1="-18" y1="0" x2="-23" y2="0"/>
+          <line x1="18" y1="0" x2="23" y2="0"/>
+          <line x1="-13" y1="-13" x2="-17" y2="-17"/>
+          <line x1="13" y1="-13" x2="17" y2="-17"/>
+          <line x1="-13" y1="13" x2="-17" y2="17"/>
+          <line x1="13" y1="13" x2="17" y2="17"/>
+        </g>
+      </g>
+      <text x="78" y="48" class="label-eyebrow">Pipeline</text>
+      <text x="78" y="84" class="label-name">Meta<tspan class="label-em">GEAR</tspan></text>
+    </g>
+  </g>
+
+  <!-- Divider rule + "or" -->
+  <g transform="translate(0, 232)">
+    <line class="ink-soft" x1="20" y1="40" x2="240" y2="40" stroke-dasharray="2 6"/>
+    <text x="260" y="44" class="label-eyebrow">or</text>
+    <line class="ink-soft" x1="280" y1="40" x2="500" y2="40" stroke-dasharray="2 6"/>
+  </g>
+
+  <!-- BOTTOM: your question → explorer -->
+  <g transform="translate(0, 320)">
+    <text x="20" y="0" class="label-eyebrow">Your question</text>
+
+    <g transform="translate(12, 12)">
+      <circle class="ink" cx="52" cy="58" r="40"/>
+      <line class="ink" x1="82" y1="88" x2="106" y2="112"/>
+      <g stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.65">
+        <path d="M 30 58 Q 38 42, 52 58 T 74 58"/>
+        <path d="M 30 68 Q 38 52, 52 68 T 74 68"/>
+      </g>
+      <text x="52" y="138" text-anchor="middle" class="label-tag">narG? · PF08020?</text>
+    </g>
+
+    <line class="ink" x1="120" y1="78" x2="200" y2="78" marker-end="url(#arr)" opacity="0.55"/>
+
+    <g transform="translate(220, 18)">
+      <rect class="accent-bg" x="0" y="0" width="280" height="120" rx="14"/>
+      <rect class="accent-stroke" fill="none" stroke-width="1.5" x="0" y="0" width="280" height="120" rx="14"/>
+      <g transform="translate(28, 38)">
+        <rect class="accent-stroke" stroke-width="2" fill="none" x="0" y="0" width="46" height="38" rx="4"/>
+        <circle class="accent-fill" cx="6" cy="7" r="1.6"/>
+        <circle class="accent-fill" cx="13" cy="7" r="1.6"/>
+        <circle class="accent-fill" cx="20" cy="7" r="1.6"/>
+        <line class="accent-stroke" stroke-width="1.5" x1="5" y1="18" x2="41" y2="18"/>
+        <line class="accent-stroke" stroke-width="1.5" x1="5" y1="26" x2="32" y2="26"/>
+      </g>
+      <text x="92" y="48" class="label-eyebrow">Web portal</text>
+      <text x="92" y="84" class="label-em" font-style="italic">Explorer</text>
+    </g>
+  </g>
+</svg>
