@@ -23,7 +23,7 @@ MSP      ──► Explore  ──► all genes in that species pangenome
 
 Paired-end shotgun metagenomic reads. You want quality-controlled, taxonomically profiled, functionally annotated outputs — on your own machine or HPC.
 
-**Use [MetaGEAR Workflows](/metagear/workflows/) + [MetaGEAR Tools (CLI)](/metagear/tools/).**
+**Use [MetaGEAR Workflows](/workflows/) + [MetaGEAR Tools (CLI)](/tools/).**
 
 1. **Check prerequisites**:
    - Java 17+
@@ -56,4 +56,4 @@ Full reference lives in the [`metagear-tools` repository](https://github.com/sch
 
 ## Not sure which?
 
-The [What is MetaGEAR](/metagear/about/) page explains how the components fit together. Or [open an issue](https://github.com/schirmer-lab/metagear/issues) and we'll point you in the right direction.
+The [What is MetaGEAR](/about/) page explains how the components fit together. Or [open an issue](https://github.com/schirmer-lab/issues) and we'll point you in the right direction.

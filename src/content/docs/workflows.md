@@ -28,7 +28,7 @@ nextflow run schirmer-lab/metagear-pipeline \
   --outdir results/
 ```
 
-But the recommended path — especially if you aren't a regular Nextflow user — is via **MetaGEAR Tools**, the CLI that installs the pipeline, manages reference databases, and applies sensible defaults. See the [MetaGEAR Tools (CLI)](/metagear/tools/) page.
+But the recommended path — especially if you aren't a regular Nextflow user — is via **MetaGEAR Tools**, the CLI that installs the pipeline, manages reference databases, and applies sensible defaults. See the [MetaGEAR Tools (CLI)](/tools/) page.
 
 ## Inputs and outputs
 
@@ -47,6 +47,6 @@ MetaGEAR Workflows uses the [nf-core](https://nf-co.re) framework, inheriting co
 
 ## Where to go next
 
-- [MetaGEAR Tools (CLI)](/metagear/tools/) — install and drive the pipeline from one command
+- [MetaGEAR Tools (CLI)](/tools/) — install and drive the pipeline from one command
 - [Pipeline repository](https://github.com/schirmer-lab/metagear-pipeline) — source, releases, full parameter reference
 - [Open an issue](https://github.com/schirmer-lab/metagear-pipeline/issues) — bug reports and feature requests

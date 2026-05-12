@@ -2,7 +2,7 @@
 
 This repository hosts the umbrella website for the **MetaGEAR Platform** — an integrated bioinformatics platform for microbiome research developed at the [Schirmer Lab](https://www.mls.ls.tum.de/en/mdi/home/).
 
-The site is published at <https://schirmer-lab.github.io/metagear/>.
+The site is published at <https://metagear-platform.schirmerlab.de>.
 
 The platform consists of three components, each with its own repository:
 

@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-  site: 'https://schirmer-lab.github.io',
-  base: '/metagear',
+  site: 'https://metagear-platform.schirmerlab.de',
   trailingSlash: 'ignore',
   integrations: [
     starlight({
@@ -22,7 +21,7 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             property: 'og:image',
-            content: 'https://schirmer-lab.github.io/metagear/og-image.png',
+            content: 'https://metagear-platform.schirmerlab.de/og-image.png',
           },
         },
         {
@@ -45,7 +44,7 @@ export default defineConfig({
           tag: 'meta',
           attrs: {
             name: 'twitter:image',
-            content: 'https://schirmer-lab.github.io/metagear/og-image.png',
+            content: 'https://metagear-platform.schirmerlab.de/og-image.png',
           },
         },
         {
@@ -68,7 +67,7 @@ export default defineConfig({
             (function () {
               if (typeof window === 'undefined') return;
               var p = location.pathname.replace(/\\/$/, '');
-              if (p === '' || p.endsWith('/metagear')) {
+              if (p === '') {
                 document.documentElement.classList.add('is-landing');
               }
             })();

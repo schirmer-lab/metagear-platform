@@ -65,5 +65,5 @@ SAMPLE-02,/path/to/sample2_R1.fastq.gz,/path/to/sample2_R2.fastq.gz
 ## Where to go next
 
 - [metagear-tools repository](https://github.com/schirmer-lab/metagear-tools) — full reference, configuration options, troubleshooting
-- [MetaGEAR Workflows](/metagear/workflows/) — what each workflow actually does
+- [MetaGEAR Workflows](/workflows/) — what each workflow actually does
 - [Open an issue](https://github.com/schirmer-lab/metagear-tools/issues) — bug reports for the installer or CLI

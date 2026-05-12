@@ -28,9 +28,9 @@ It's a free hosted service. No software to install, no local setup.
 
 ## Methods and citation
 
-Methods and validation are described across multiple publications — see the [Cite & contact](/metagear/cite/) page for the right reference depending on what you used.
+Methods and validation are described across multiple publications — see the [Cite & contact](/cite/) page for the right reference depending on what you used.
 
 ## Where to go next
 
 - [Open Explorer ↗](https://metagear-explorer.schirmerlab.de) — the live portal
-- [Cite & contact](/metagear/cite/) — publications and how to reach the team
+- [Cite & contact](/cite/) — publications and how to reach the team

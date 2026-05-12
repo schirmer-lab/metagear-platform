@@ -44,6 +44,6 @@ MetaGEAR is developed at the [Schirmer Lab](https://www.mls.ls.tum.de/en/mdi/hom
 
 - **Pipeline issues** — [metagear-pipeline issues](https://github.com/schirmer-lab/metagear-pipeline/issues).
 - **Installer / CLI issues** — [metagear-tools issues](https://github.com/schirmer-lab/metagear-tools/issues).
-- **Explorer portal issues** — [open an issue on this platform repo](https://github.com/schirmer-lab/metagear/issues) and tag it `explorer`.
-- **General platform questions** — [open an issue on this repo](https://github.com/schirmer-lab/metagear/issues).
+- **Explorer portal issues** — [open an issue on this platform repo](https://github.com/schirmer-lab/issues) and tag it `explorer`.
+- **General platform questions** — [open an issue on this repo](https://github.com/schirmer-lab/issues).
 - **Collaborations** — reach out via the [Schirmer Lab website](https://www.mls.ls.tum.de/en/mdi/home/).

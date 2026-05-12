@@ -18,7 +18,7 @@ When a task is about CLI flags or pipeline parameters, the right repo is one of 
 
 **Important factual constraint:** running the pipeline locally does **not** push results into Explorer. Explorer serves curated catalogs the Schirmer Lab maintains centrally. Don't write content that implies a live data pipe between Workflows and Explorer — they're independent products.
 
-The repo may be renamed to `metagear-platform` later; for now the GitHub URL stays `schirmer-lab/metagear` and the Pages URL stays `https://schirmer-lab.github.io/metagear/`.
+The repo may be renamed to `metagear-platform` later; for now the GitHub repo URL stays `schirmer-lab/metagear`. The site is served from the **custom domain** `https://metagear-platform.schirmerlab.de` (GoDaddy CNAME → `schirmer-lab.github.io`; org-verified; HTTPS enforced in repo Settings → Pages). The `public/CNAME` file is required because the site is deployed via GitHub Actions, not from a branch.
 
 ## Stack
 
@@ -26,8 +26,7 @@ Astro 5 + Starlight 0.30. Pure static site, deployed to GitHub Pages via `.githu
 
 Key config:
 
-- `base: '/metagear'` in `astro.config.mjs` — site lives under that path; internal links use it automatically when authored as `/foo/`.
-- `site: 'https://schirmer-lab.github.io'` — feeds canonical URLs and sitemap.
+- `site: 'https://metagear-platform.schirmerlab.de'` — feeds canonical URLs, sitemap, and OG/Twitter image URLs. No `base` is set; the site is served from the root of the custom domain.
 - Pagefind client-side search ships out-of-the-box with Starlight.
 - Sitemap is generated automatically (Starlight pulls in `@astrojs/sitemap`).
 

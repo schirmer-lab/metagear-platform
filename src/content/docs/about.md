@@ -34,8 +34,8 @@ A web app and REST API for querying curated catalogs of microbial genes by seque
 
 ## Where it's going
 
-The platform is actively developed. New cohorts are added as they're curated; new components will be folded in as they mature. If you want to be notified, the [news page](/metagear/news/) is the running log.
+The platform is actively developed. New cohorts are added as they're curated; new components will be folded in as they mature. If you want to be notified, the [news page](/news/) is the running log.
 
 ## Citing MetaGEAR
 
-The platform is described across multiple publications — see the [Cite & contact](/metagear/cite/) page for the right citation depending on what you used.
+The platform is described across multiple publications — see the [Cite & contact](/cite/) page for the right citation depending on what you used.
