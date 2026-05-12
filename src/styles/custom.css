@@ -291,7 +291,6 @@ body {
   max-width: 100%;
   text-decoration: none !important;
   color: inherit;
-  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mg-showcase__frame img {
@@ -300,18 +299,6 @@ body {
   max-width: 1100px;
   height: auto;
   margin-inline: auto;
-  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.12))
-          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
-  transition: filter 280ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.mg-showcase__frame:hover {
-  transform: translateY(-4px);
-}
-
-.mg-showcase__frame:hover img {
-  filter: drop-shadow(0 36px 60px rgba(0, 0, 0, 0.14))
-          drop-shadow(0 12px 22px rgba(0, 0, 0, 0.1));
 }
 
 .mg-showcase__url {
@@ -830,6 +817,78 @@ a.mg-feature__shot:hover {
   border-top: 1px solid var(--mg-rule);
 }
 
+/* CONTRIBUTORS ------------------------------------------ */
+.mg-contributors-section {
+  padding-block: var(--mg-space-xl) var(--mg-space-lg);
+  border-top: 1px solid var(--mg-rule);
+}
+
+.mg-contributors-section__head {
+  text-align: center;
+  max-width: 56rem;
+  margin: 0 auto var(--mg-space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mg-contributors-section__head .mg-eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.mg-contributors {
+  list-style: none;
+  margin: var(--mg-space-lg) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.mg-contributor {
+  margin: 0;
+}
+
+.mg-contributor__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1.25rem 0.75rem;
+  border: 1px solid var(--mg-rule);
+  border-radius: var(--mg-radius-lg);
+  background: var(--mg-surface);
+  text-decoration: none !important;
+  color: inherit;
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.mg-contributor__link:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--sl-color-accent) 45%, var(--mg-rule));
+  background: var(--mg-surface-2);
+}
+
+.mg-contributor__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--mg-surface-2);
+  border: 1px solid var(--mg-rule);
+  display: block;
+}
+
+.mg-contributor__handle {
+  font-family: var(--mg-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--mg-text-strong);
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
 /* 6. Buttons ─────────────────────────────────────────────── */
 .mg-actions {
   display: flex;
@@ -1070,12 +1129,57 @@ html.is-landing main {
   padding-top: 0 !important;
 }
 
-/* ----- Landing-only theme switcher (replaces the hidden header toggle) ----- */
-.mg-theme-switch {
+/* ----- Landing-only top bar (docs nav + theme switcher) -----
+   The Starlight header is hidden on the landing, so this fixed bar is the
+   only persistent path back into the docs. */
+.mg-landing-topbar {
   position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 200;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+html.is-landing .mg-landing-topbar {
+  display: inline-flex;
+}
+
+.mg-landing-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 3px;
+  background: var(--sl-color-bg);
+  border: 1px solid var(--mg-rule);
+  border-radius: 999px;
+  font-family: var(--mg-font-body);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 20px -12px rgba(0, 0, 0, 0.1);
+}
+
+.mg-landing-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--mg-font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--mg-text-body);
+  text-decoration: none !important;
+  letter-spacing: -0.005em;
+  transition: background 160ms ease, color 160ms ease;
+  white-space: nowrap;
+}
+
+.mg-landing-nav a:hover {
+  color: var(--sl-color-accent);
+  background: var(--mg-surface-2);
+}
+
+.mg-theme-switch {
   display: inline-flex;
   gap: 1px;
   padding: 3px;
@@ -1085,12 +1189,6 @@ html.is-landing main {
   font-family: var(--mg-font-body);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
     0 8px 20px -12px rgba(0, 0, 0, 0.1);
-  /* Hidden by default; revealed only on landing */
-  display: none;
-}
-
-html.is-landing .mg-theme-switch {
-  display: inline-flex;
 }
 
 .mg-theme-switch button {
@@ -1123,8 +1221,16 @@ html.is-landing .mg-theme-switch {
   display: block;
 }
 
+/* On narrow screens the docs nav would crowd the theme switcher; hide it and
+   let users rely on in-page CTAs and footer links instead. */
+@media (max-width: 48rem) {
+  .mg-landing-nav {
+    display: none;
+  }
+}
+
 @media (max-width: 30rem) {
-  .mg-theme-switch {
+  .mg-landing-topbar {
     top: 0.65rem;
     right: 0.65rem;
   }

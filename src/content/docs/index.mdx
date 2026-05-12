@@ -10,20 +10,30 @@ pagefind: false
 
 <div class="mg-landing not-content">
 
-{/* Landing-only theme switcher (header is hidden on this page).
-    Two buttons only; system preference decides the default on first visit. */}
-<div class="mg-theme-switch" role="group" aria-label="Color theme">
-  <button type="button" data-mg-theme="light" aria-pressed="false" aria-label="Light theme" title="Light">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="4"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-    </svg>
-  </button>
-  <button type="button" data-mg-theme="dark" aria-pressed="false" aria-label="Dark theme" title="Dark">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  </button>
+{/* Landing-only top bar: docs nav + theme switcher.
+    The Starlight header is hidden on this page (see custom.css), so this is
+    the only persistent way back into the documentation. */}
+<div class="mg-landing-topbar">
+  <nav class="mg-landing-nav" aria-label="Documentation">
+    <a href="/get-started/">Get started</a>
+    <a href="/workflows/">Workflows</a>
+    <a href="/tools/">Tools</a>
+    <a href="/explorer/">Explorer</a>
+    <a href="/cite/">Cite</a>
+  </nav>
+  <div class="mg-theme-switch" role="group" aria-label="Color theme">
+    <button type="button" data-mg-theme="light" aria-pressed="false" aria-label="Light theme" title="Light">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
+    <button type="button" data-mg-theme="dark" aria-pressed="false" aria-label="Dark theme" title="Dark">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
 </div>
 
 {/* ===================== HERO ===================== */}
@@ -275,6 +285,42 @@ pagefind: false
       <div class="mg-paper__cite">s41564-025-02223-0</div>
     </a>
   </div>
+</section>
+
+{/* ===================== CONTRIBUTORS ===================== */}
+<section class="mg-contributors-section mg-reveal" id="contributors">
+  <div class="mg-contributors-section__head">
+    <span class="mg-eyebrow"><span class="mg-section-num">05</span>Contributors</span>
+    <h2 class="mg-feature__title">
+      Contributed to <em>MetaGEAR:</em>
+    </h2>
+  </div>
+
+  <ul class="mg-contributors">
+    {[
+      'gariem',
+      'AUAShen',
+      'zcy486',
+      'fneuh',
+      'schorlsa',
+      'SimHolz',
+      'sahoo2000',
+    ].map((handle) => (
+      <li class="mg-contributor" key={handle}>
+        <a class="mg-contributor__link" href={`https://github.com/${handle}`} aria-label={`${handle} on GitHub`}>
+          <img
+            class="mg-contributor__avatar"
+            src={`https://github.com/${handle}.png?size=120`}
+            alt=""
+            loading="lazy"
+            width="60"
+            height="60"
+          />
+          <span class="mg-contributor__handle">@{handle}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
 </section>
 
 </div>
