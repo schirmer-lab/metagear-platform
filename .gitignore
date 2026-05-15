@@ -2,6 +2,12 @@
 dist/
 .astro/
 
+# Claude Code harness state (worktrees, settings, session data)
+.claude/
+
+# Mirrored pipeline docs (fetched at build time from schirmer-lab/metagear-pipeline)
+src/content/docs/pipeline/workflows/
+
 # Node
 node_modules/
 npm-debug.log*
