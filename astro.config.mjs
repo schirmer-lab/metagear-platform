@@ -171,6 +171,16 @@ export default defineConfig({
             { label: 'MetaGEAR Explorer', link: '/explorer/' },
           ],
         },
+        {
+          label: 'Pipeline reference',
+          items: [
+            { label: 'Overview', link: '/pipeline/' },
+            {
+              label: 'Workflows',
+              autogenerate: { directory: 'pipeline/workflows' },
+            },
+          ],
+        },
         { label: 'Cite & contact', link: '/cite/' },
         { label: 'News', link: '/news/' },
       ],

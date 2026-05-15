@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "fetch:pipeline-docs": "node scripts/fetch-pipeline-docs.mjs",
+    "predev": "npm run fetch:pipeline-docs",
+    "prebuild": "npm run fetch:pipeline-docs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
