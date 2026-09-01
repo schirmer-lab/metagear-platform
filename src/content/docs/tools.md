@@ -73,7 +73,7 @@ on so each step picks up what the ones before it produced instead of recomputing
 | `genomes`    | `genes` → `classification` → `mag` → `msp` |
 | `microbiome` | `genomes` + `virus`                        |
 
-→ **[Presets](/presets/)** — what each one produces and what it costs.
+→ **[Presets](/pipeline/presets/)** — what each one produces and what it costs.
 
 ```bash
 metagear microbiome --input samples.csv --outdir results/

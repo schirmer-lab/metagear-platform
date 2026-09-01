@@ -49,7 +49,7 @@ A preset is not a separate analysis — it is the same workflows in dependency o
 `--reuse-outputs` switched on so nothing is recomputed. Running them by hand in the same order gives
 the same result.
 
-→ **[Presets](/presets/)** — what each one produces, what it costs, and how to preview a run.
+→ **[Presets](/pipeline/presets/)** — what each one produces, what it costs, and how to preview a run.
 
 ## How you run it
 

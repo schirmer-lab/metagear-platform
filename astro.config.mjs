@@ -163,7 +163,6 @@ export default defineConfig({
         { label: 'Home', link: '/' },
         { label: 'What is MetaGEAR', link: '/about/' },
         { label: 'Get started', link: '/get-started/' },
-        { label: 'Presets', link: '/presets/' },
         {
           label: 'Components',
           items: [
@@ -176,6 +175,7 @@ export default defineConfig({
           label: 'Pipeline reference',
           items: [
             { label: 'Overview', link: '/pipeline/' },
+            { label: 'Presets', link: '/pipeline/presets/' },
             {
               // Listed in the order they are run, not alphabetically, which is what
               // autogenerate gives. Adding a workflow means adding a line here.
