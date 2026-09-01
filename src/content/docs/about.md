@@ -9,12 +9,15 @@ MetaGEAR is built at the [Schirmer Lab](https://www.mls.ls.tum.de/en/mdi/home/) 
 
 ### MetaGEAR Pipeline
 
-A Nextflow / nf-core pipeline that performs:
+A Nextflow / nf-core pipeline of nine workflows, run individually or chained by preset:
 
 - **Quality control & decontamination** with Kneaddata and TrimGalore
-- **Taxonomic profiling** with MetaPhlAn
-- **Functional profiling** with HUMAnN
-- **Gene-centric analysis**, with optional contig catalog assembly
+- **Taxonomic & functional profiling** with MetaPhlAn and HUMAnN
+- **Gene catalogs** assembled and quantified across the cohort with MEGAHIT, MMseqs2 and CoverM
+- **Viruses and plasmids** with geNomad, CheckV, Pharokka, iPHoP and PhaTYP
+- **Bacterial genomes** binned with SemiBin2 and MetaBAT2, refined by Binette, placed with GTDB-Tk
+- **Species pangenomes** from co-abundance with MSPminer
+- **Protein structures** for what sequence homology leaves unassigned, via PHOLD
 
 Outputs follow a consistent, documented schema designed to be easy to post-process.
 
