@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository purpose
 
-This repo (`schirmer-lab/metagear`) hosts the **MetaGEAR Platform** umbrella website — a high-level overview site that introduces the platform and links out to each component's own repository. It is **not** a docs aggregator; deep technical reference lives next to the code in each component repo:
+This repo (`schirmer-lab/metagear-platform`) hosts the **MetaGEAR Platform** umbrella website — a high-level overview site that introduces the platform and links out to each component's own repository. It is **not** a docs aggregator; deep technical reference lives next to the code in each component repo:
 
-- **MetaGEAR Workflows** → `schirmer-lab/metagear-pipeline` (public Nextflow / nf-core-style pipeline; this is what the platform site links to and mirrors docs from). There is also a private internal `schirmer-lab/metagear-pipeline-dev` where active development happens; changes flow from `-dev` to public over time. The platform must only reference the public repo so visitors don't hit auth walls.
+- **MetaGEAR Workflows** → `schirmer-lab/metagear-pipeline` (public Nextflow / nf-core-style pipeline; this is what the platform site links to and mirrors docs from). Development happens on its `dev` branch and is released to `master`; the 1.x line is archived at `schirmer-lab/metagear-pipeline-legacy`.
 - **MetaGEAR Tools (CLI)** → `schirmer-lab/metagear-tools` (public source, extracted from this repo on 2026-05-07)
 - **MetaGEAR Explorer** → hosted at https://metagear-explorer.schirmerlab.de. **Source is not publicly available** — there is a private repo `schirmer-lab/metagear-explorer` you may see referenced in older artifacts, but the platform site must not link to it. Refer to Explorer by its hosted URL only.
 
@@ -18,7 +18,7 @@ When a task is about CLI flags or pipeline parameters, the right repo is one of 
 
 **Important factual constraint:** running the pipeline locally does **not** push results into Explorer. Explorer serves curated catalogs the Schirmer Lab maintains centrally. Don't write content that implies a live data pipe between Workflows and Explorer — they're independent products.
 
-The repo may be renamed to `metagear-platform` later; for now the GitHub repo URL stays `schirmer-lab/metagear`. The site is served from the **custom domain** `https://metagear-platform.schirmerlab.de` (GoDaddy CNAME → `schirmer-lab.github.io`; org-verified; HTTPS enforced in repo Settings → Pages). The `public/CNAME` file is required because the site is deployed via GitHub Actions, not from a branch.
+The repo was renamed from `schirmer-lab/metagear` to `schirmer-lab/metagear-platform` on 2026-09-01; the old name still redirects. The site is served from the **custom domain** `https://metagear-platform.schirmerlab.de` (GoDaddy CNAME → `schirmer-lab.github.io`; org-verified; HTTPS enforced in repo Settings → Pages). The `public/CNAME` file is required because the site is deployed via GitHub Actions, not from a branch.
 
 ## Stack
 
@@ -63,7 +63,7 @@ Logo is a hand-authored SVG hex-cube at `src/assets/logo-light.svg` (and `-dark.
 
 ## nf-core lint: do not modify template-locked files
 
-Both pipeline repos (`metagear-pipeline` and `metagear-pipeline-dev`) run `nf-core lint` in CI. The `files_unchanged` lint test enforces byte-for-byte equality against the nf-core template for a set of files. The **explicit** list in each repo's `.nf-core.yml` (`lint.files_unchanged`) is not the whole story — nf-core lint also enforces an **implicit default** list that is not spelled out there. Known template-locked files include:
+The pipeline repo runs `nf-core lint` in CI. The `files_unchanged` lint test enforces byte-for-byte equality against the nf-core template for a set of files. The **explicit** list in each repo's `.nf-core.yml` (`lint.files_unchanged`) is not the whole story — nf-core lint also enforces an **implicit default** list that is not spelled out there. Known template-locked files include:
 
 - `docs/README.md` — the two-bullet index file. Only `[Usage](usage.md)` and `[Output](output.md)` entries are permitted; the build fails the moment a third bullet is added.
 - `CODE_OF_CONDUCT.md`, `LICENSE`, `.github/ISSUE_TEMPLATE/*`, `.github/PULL_REQUEST_TEMPLATE.md`, various email/logo assets.
@@ -76,7 +76,7 @@ If a deliberate divergence from the template is required, the only legitimate pa
 
 ## Mirrored docs
 
-The `Pipeline reference` section under `/pipeline/` is mirrored from the **public** pipeline repo [`schirmer-lab/metagear-pipeline`](https://github.com/schirmer-lab/metagear-pipeline) at build time (default branch `master`). The platform repo never holds a committed copy of the markdown — it is downloaded fresh each build. The private `-dev` repo must never be referenced from the platform site (auth wall).
+The `Pipeline reference` section under `/pipeline/` is mirrored from the **public** pipeline repo [`schirmer-lab/metagear-pipeline`](https://github.com/schirmer-lab/metagear-pipeline) at build time. The platform repo never holds a committed copy of the markdown — it is downloaded fresh each build. `ref` pins a release tag, so the site does not drift, and a pipeline release does not move it: bumping the pin is a separate step.
 
 How it works:
 
@@ -85,7 +85,7 @@ How it works:
 - npm `predev`/`prebuild` hooks invoke the fetcher before `astro dev` / `astro build`. CI runs it transparently via `npm run build`.
 - The Starlight sidebar uses `autogenerate: { directory: 'pipeline/workflows' }`, so adding/removing files in `pipeline-docs.json` does not require an `astro.config.mjs` edit.
 
-To update mirrored content on the live site: bump `ref` in `pipeline-docs.json` and commit. To iterate locally against an unpushed branch in the pipeline repo: `PIPELINE_DOCS_LOCAL=/path/to/metagear-pipeline-dev npm run dev`.
+To update mirrored content on the live site: bump `ref` in `pipeline-docs.json` and commit. To iterate locally against an unpushed branch in the pipeline repo: `PIPELINE_DOCS_LOCAL=/path/to/metagear-pipeline npm run dev`.
 
 To add a new mirror file: append its path to the `files` array in `pipeline-docs.json`. The same mechanism extends to other component repos (e.g. `metagear-tools`) when needed — either add a second source to the pin file (multi-source refactor) or add a second pin file alongside.
 

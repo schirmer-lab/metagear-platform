@@ -7,11 +7,11 @@ This section is a deep reference for the MetaGEAR Nextflow pipeline — what eac
 
 ## Where this content lives
 
-The pages under [Workflows](workflows/) are mirrored at build time from the pipeline repository, [`schirmer-lab/metagear-pipeline-dev`](https://github.com/schirmer-lab/metagear-pipeline-dev), under `docs/workflows/`. The pipeline repo is the source of truth; this site renders the same markdown with consistent navigation and search.
+The pages under [Workflows](workflows/) are mirrored at build time from the pipeline repository, [`schirmer-lab/metagear-pipeline`](https://github.com/schirmer-lab/metagear-pipeline), under `docs/workflows/`. The pipeline repo is the source of truth; this site renders the same markdown with consistent navigation and search.
 
 ## Editing
 
-To change a workflow page, open a pull request against [`docs/workflows/`](https://github.com/schirmer-lab/metagear-pipeline-dev/tree/main/docs/workflows) in the pipeline repo. Once merged, bump the `ref` in [`pipeline-docs.json`](https://github.com/schirmer-lab/metagear/blob/main/pipeline-docs.json) on this site to publish the new content. The bump is a one-line PR.
+To change a workflow page, open a pull request against [`docs/workflows/`](https://github.com/schirmer-lab/metagear-pipeline/tree/master/docs/workflows) in the pipeline repo. Once merged, bump the `ref` in [`pipeline-docs.json`](https://github.com/schirmer-lab/metagear-platform/blob/main/pipeline-docs.json) on this site to publish the new content. The bump is a one-line PR.
 
 ## Want to run the pipeline?
 

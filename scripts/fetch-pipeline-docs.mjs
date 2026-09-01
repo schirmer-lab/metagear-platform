@@ -13,7 +13,7 @@
  *     absolute github.com/<repo>/blob/<ref> URLs so they resolve.
  *   - Writes results to src/content/docs/pipeline/workflows/ (gitignored).
  *
- * Local override: set PIPELINE_DOCS_LOCAL=/path/to/metagear-pipeline-dev to
+ * Local override: set PIPELINE_DOCS_LOCAL=/path/to/metagear-pipeline to
  * copy from a local checkout instead of fetching from GitHub. Useful for
  * iterating on docs before the pipeline branch is pushed.
  */
