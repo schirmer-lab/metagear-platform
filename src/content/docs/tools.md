@@ -62,8 +62,41 @@ SAMPLE-01,/path/to/sample1_R1.fastq.gz,/path/to/sample1_R2.fastq.gz
 SAMPLE-02,/path/to/sample2_R1.fastq.gz,/path/to/sample2_R2.fastq.gz
 ```
 
+## Presets
+
+A preset runs several workflows in dependency order in one workspace, with `--reuse-outputs` switched
+on so each step picks up what the ones before it produced instead of recomputing:
+
+| Preset       | Runs                                                 |
+| ------------ | ---------------------------------------------------- |
+| `profiles`   | `microbial_profiles`                                 |
+| `genomes`    | `genes` → `classification` → `mag` → `msp`           |
+| `microbiome` | `genes` → `virus` → `classification` → `mag` → `msp` |
+
+```bash
+metagear microbiome --input samples.csv --outdir results/
+
+# show the plan without running anything
+metagear microbiome --input samples.csv --outdir results/ --preview
+```
+
+If a step fails, the ones after it do not start. Fix what it reported and run the same command again —
+the steps that already finished resume from their own caches rather than starting over.
+
+## Running across machines
+
+`metagear cluster` brings up a HyperQueue cluster across the machines listed in `nodes.conf`, so one
+cohort spreads over all of them:
+
+```bash
+metagear cluster up --pct 75      # also: ensure, down, status, restart, jobs, scratch, db, sweep
+METAGEAR_MODE=cluster metagear microbiome --input samples.csv --outdir results/
+```
+
+`METAGEAR_MODE=single`, the default, keeps a run on the machine you launched it from.
+
 ## Where to go next
 
 - [metagear-tools repository](https://github.com/schirmer-lab/metagear-tools) — full reference, configuration options, troubleshooting
-- [MetaGEAR Workflows](/workflows/) — what each workflow actually does
+- [MetaGEAR Pipeline](/workflows/) — what each workflow actually does
 - [Open an issue](https://github.com/schirmer-lab/metagear-tools/issues) — bug reports for the installer or CLI
