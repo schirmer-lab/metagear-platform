@@ -24,11 +24,11 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   </a>
   <div class="mg-landing-topbar__right">
     <nav class="mg-landing-nav" aria-label="Documentation">
-      <a href="/get-started/">Get started</a>
-      <a href="/workflows/">Pipeline</a>
-      <a href="/tools/">Tools</a>
-      <a href="/explorer/">Explorer</a>
-      <a href="/cite/">Cite</a>
+      <a href="#top">Start</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#explorer">Explorer</a>
+      <a href="#tools">Tools</a>
+      <a href="#publications">Cite</a>
     </nav>
     <a class="mg-landing-nav__docs" href="/get-started/">Docs →</a>
     <div class="mg-theme-switch" role="group" aria-label="Color theme">
@@ -50,7 +50,7 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
 {/* ===================== HERO ===================== */}
 {/* The only centred block on the page, and the only place with top-level
     CTAs — the showcase band that used to duplicate them is gone. */}
-<section class="mg-hero mg-reveal">
+<section class="mg-hero mg-reveal" id="top">
   <div class="mg-hero__inner">
     <h1 class="mg-hero__title">
       Microbiome research,
@@ -69,6 +69,34 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
         Open MetaGEAR Explorer <span aria-hidden="true">↗</span>
       </a>
     </div>
+  </div>
+
+  {/* The three components, in the order they are used everywhere else. */}
+  <div class="mg-components">
+    <a class="mg-component" href="#pipeline">
+      <span class="mg-component__name">MetaGEAR Pipeline</span>
+      <span class="mg-component__desc">
+        Ten composable Nextflow workflows taking raw reads to gene catalogs,
+        MAGs, viruses and protein structures.
+      </span>
+      <span class="mg-component__go">What it produces <span aria-hidden="true">↓</span></span>
+    </a>
+    <a class="mg-component" href="#explorer">
+      <span class="mg-component__name">MetaGEAR Explorer</span>
+      <span class="mg-component__desc">
+        A hosted portal for querying bacterial genes across cohorts the
+        pipeline has already processed.
+      </span>
+      <span class="mg-component__go">What you can search <span aria-hidden="true">↓</span></span>
+    </a>
+    <a class="mg-component" href="#tools">
+      <span class="mg-component__name">MetaGEAR Tools</span>
+      <span class="mg-component__desc">
+        A command-line wrapper that installs the pipeline, manages databases
+        and runs a whole preset with one command.
+      </span>
+      <span class="mg-component__go">How you run it <span aria-hidden="true">↓</span></span>
+    </a>
   </div>
 </section>
 
@@ -142,29 +170,6 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
         height="1580"
       />
     </a>
-
-    <div class="mg-stats">
-      <div class="mg-stat">
-        <span class="mg-stat__num">33M+</span>
-        <span class="mg-stat__label">Gene families</span>
-        <span class="mg-stat__sub">across all cohorts</span>
-      </div>
-      <div class="mg-stat">
-        <span class="mg-stat__num">24</span>
-        <span class="mg-stat__label">Metagenomic cohorts</span>
-        <span class="mg-stat__sub">IBD, CRC &amp; healthy</span>
-      </div>
-      <div class="mg-stat">
-        <span class="mg-stat__num">9,053</span>
-        <span class="mg-stat__label">Stool samples</span>
-        <span class="mg-stat__sub">uniformly processed</span>
-      </div>
-      <div class="mg-stat">
-        <span class="mg-stat__num">13,795</span>
-        <span class="mg-stat__label">Species pangenomes</span>
-        <span class="mg-stat__sub">with gene catalogs</span>
-      </div>
-    </div>
 
     <div class="mg-sec__foot">
       <ul class="mg-feature__points mg-points--grid">

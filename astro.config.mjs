@@ -168,8 +168,8 @@ export default defineConfig({
           label: 'Components',
           items: [
             { label: 'MetaGEAR Pipeline', link: '/workflows/' },
-            { label: 'MetaGEAR Tools (CLI)', link: '/tools/' },
             { label: 'MetaGEAR Explorer', link: '/explorer/' },
+            { label: 'MetaGEAR Tools (CLI)', link: '/tools/' },
           ],
         },
         {
