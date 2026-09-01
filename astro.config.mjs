@@ -166,7 +166,7 @@ export default defineConfig({
         {
           label: 'Components',
           items: [
-            { label: 'MetaGEAR Workflows', link: '/workflows/' },
+            { label: 'MetaGEAR Pipeline', link: '/workflows/' },
             { label: 'MetaGEAR Tools (CLI)', link: '/tools/' },
             { label: 'MetaGEAR Explorer', link: '/explorer/' },
           ],
@@ -176,8 +176,22 @@ export default defineConfig({
           items: [
             { label: 'Overview', link: '/pipeline/' },
             {
+              // Listed in the order they are run, not alphabetically, which is what
+              // autogenerate gives. Adding a workflow means adding a line here.
               label: 'Workflows',
-              autogenerate: { directory: 'pipeline/workflows' },
+              items: [
+                { label: 'Overview', link: '/pipeline/workflows/' },
+                { label: 'download_databases', link: '/pipeline/workflows/download_databases/' },
+                { label: 'qc_dna', link: '/pipeline/workflows/qc_dna/' },
+                { label: 'qc_rna', link: '/pipeline/workflows/qc_rna/' },
+                { label: 'microbial_profiles', link: '/pipeline/workflows/microbial_profiles/' },
+                { label: 'genes', link: '/pipeline/workflows/genes/' },
+                { label: 'virus', link: '/pipeline/workflows/virus/' },
+                { label: 'classification', link: '/pipeline/workflows/classification/' },
+                { label: 'mag', link: '/pipeline/workflows/mag/' },
+                { label: 'msp', link: '/pipeline/workflows/msp/' },
+                { label: 'structures', link: '/pipeline/workflows/structures/' },
+              ],
             },
           ],
         },
