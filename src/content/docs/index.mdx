@@ -8,6 +8,8 @@ pagefind: false
 ---
 
 import PipelineFigure from '../../components/PipelineFigure.astro';
+import wordmarkLight from '../../assets/wordmark-light.svg';
+import wordmarkDark from '../../assets/wordmark-dark.svg';
 
 
 <div class="mg-landing not-content">
@@ -16,12 +18,14 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
     The Starlight header is hidden on this page (see custom.css), so this is
     the only persistent way back into the documentation. */}
 <div class="mg-landing-topbar">
-  <a class="mg-landing-brand" href="/">MetaGEAR<em>.</em></a>
+  <a class="mg-landing-brand" href="/" aria-label="MetaGEAR home">
+    <img class="mg-wordmark mg-wordmark--light" src={wordmarkLight.src} alt="MetaGEAR" width="220" height="56" />
+    <img class="mg-wordmark mg-wordmark--dark" src={wordmarkDark.src} alt="" aria-hidden="true" width="220" height="56" />
+  </a>
   <div class="mg-landing-topbar__right">
     <nav class="mg-landing-nav" aria-label="Documentation">
       <a href="/get-started/">Get started</a>
       <a href="/workflows/">Pipeline</a>
-      <a href="/pipeline/presets/">Presets</a>
       <a href="/tools/">Tools</a>
       <a href="/explorer/">Explorer</a>
       <a href="/cite/">Cite</a>
@@ -70,7 +74,7 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
 
 {/* ===================== 01 · PIPELINE ===================== */}
 <section class="mg-sec mg-reveal" id="pipeline">
-  <div class="mg-sec__rail"><span class="mg-sec__num">01</span></div>
+  <div class="mg-sec__rail"><span class="mg-sec__num">PIPELINE</span></div>
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Pipeline</span>
@@ -84,14 +88,10 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
         laptop or an HPC cluster.
       </p>
     </div>
-  </div>
 
-  <div class="mg-sec__wide">
     <PipelineFigure />
     <p class="mg-fig-hint">Scroll the figure sideways to see the full width.</p>
-  </div>
 
-  <div class="mg-sec__body mg-sec__body--offset">
     <div class="mg-sec__foot">
       <ul class="mg-feature__points mg-points--grid">
         <li><strong>Gene- and genome-resolved together.</strong> One assembly yields the
@@ -118,7 +118,7 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
 
 {/* ===================== 02 · EXPLORER ===================== */}
 <section class="mg-sec mg-reveal" id="explorer">
-  <div class="mg-sec__rail"><span class="mg-sec__num">02</span></div>
+  <div class="mg-sec__rail"><span class="mg-sec__num">EXPLORER</span></div>
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Explorer</span>
@@ -188,7 +188,7 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
 
 {/* ===================== 03 · TOOLS (CLI) ===================== */}
 <section class="mg-sec mg-reveal" id="tools">
-  <div class="mg-sec__rail"><span class="mg-sec__num">03</span></div>
+  <div class="mg-sec__rail"><span class="mg-sec__num">TOOLS</span></div>
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Tools · CLI</span>

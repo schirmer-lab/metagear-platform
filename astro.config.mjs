@@ -158,6 +158,7 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       components: {
         Footer: './src/components/Footer.astro',
+        SocialIcons: './src/components/HeaderNav.astro',
       },
       sidebar: [
         { label: 'Home', link: '/' },

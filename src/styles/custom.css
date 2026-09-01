@@ -971,7 +971,7 @@ html.is-landing .content-panel {
 /* ----- Section primitive ----- */
 .mg-sec {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: var(--mg-space-lg);
   padding-block: var(--mg-space-2xl);
   border-top: 1px solid var(--mg-rule-strong);
@@ -1013,16 +1013,6 @@ html.is-landing .content-panel {
   gap: var(--mg-space-md);
 }
 
-/* The two wide visuals are allowed to use the rail column. */
-.mg-sec__wide {
-  grid-column: 1 / -1;
-}
-
-/* Content resuming after a wide visual keeps the rail gutter. */
-.mg-sec__body--offset {
-  grid-column: 2;
-}
-
 @media (max-width: 64rem) {
   .mg-sec {
     grid-template-columns: 1fr;
@@ -1033,9 +1023,6 @@ html.is-landing .content-panel {
     position: static;
   }
 
-  .mg-sec__body--offset {
-    grid-column: 1;
-  }
 }
 
 /* ----- Points ----- */
@@ -1057,24 +1044,18 @@ html.is-landing .content-panel {
   }
 }
 
-/* ----- Screenshot frame -----
-   In dark mode the product UI is white; a surface frame keeps it off
-   the near-black page instead of butting straight against it. */
+/* ----- Screenshot -----
+   The capture already contains the browser window and its own rounded
+   corners, so it gets no frame of its own — that was the double border. */
 .mg-shot {
   display: block;
-  border: 1px solid var(--mg-rule);
-  border-radius: var(--mg-radius-lg);
-  overflow: hidden;
-  background: var(--mg-surface-2);
-  padding: 0.75rem;
-  max-width: 76rem;
+  max-width: 58rem;
 }
 
 .mg-shot img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--mg-radius-md);
 }
 
 /* ----- Stats -----
@@ -1086,7 +1067,7 @@ html.is-landing .content-panel {
   border: 1px solid var(--mg-rule);
   border-radius: var(--mg-radius-lg);
   overflow: hidden;
-  max-width: 76rem;
+  max-width: 64rem;
 }
 
 .mg-stat {
@@ -1156,16 +1137,62 @@ html.is-landing .content-panel {
 }
 
 .mg-landing-brand {
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: -0.015em;
-  color: var(--mg-text-strong);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none !important;
 }
 
-.mg-landing-brand em {
-  font-style: normal;
+.mg-wordmark {
+  display: block;
+  height: 1.6rem;
+  width: auto;
+}
+
+.mg-wordmark--light {
+  display: none;
+}
+
+:root[data-theme='light'] .mg-wordmark--light {
+  display: block;
+}
+
+:root[data-theme='light'] .mg-wordmark--dark {
+  display: none;
+}
+
+/* ----- Section links in the documentation header -----
+   Same five links as the landing bar, so leaving the landing does not strand
+   you. Below 72rem the sidebar carries navigation instead. */
+.mg-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mg-header-nav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--mg-radius-sm);
+  color: var(--mg-text-body);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.mg-header-nav a:hover {
   color: var(--sl-color-accent);
+  background: var(--mg-surface-2);
+}
+
+.mg-header-nav a[aria-current='page'] {
+  color: var(--sl-color-accent);
+}
+
+@media (max-width: 72rem) {
+  .mg-header-nav {
+    display: none;
+  }
 }
 
 .mg-landing-topbar__right {

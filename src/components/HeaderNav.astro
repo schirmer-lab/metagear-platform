@@ -1,0 +1,22 @@
+---
+/* Overrides Starlight's SocialIcons slot so the landing's section links are
+   present in the documentation header too. Without this the nav exists only
+   on the landing page, and following any of its links strands you. */
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+
+const links = [
+  { href: '/get-started/', label: 'Get started' },
+  { href: '/workflows/', label: 'Pipeline' },
+  { href: '/tools/', label: 'Tools' },
+  { href: '/explorer/', label: 'Explorer' },
+  { href: '/cite/', label: 'Cite' },
+];
+const here = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav class="mg-header-nav" aria-label="Sections">
+  {links.map(({ href, label }) => (
+    <a href={href} aria-current={here === href.replace(/\/$/, '') ? 'page' : undefined}>{label}</a>
+  ))}
+</nav>
+<Default {...Astro.props}><slot /></Default>
