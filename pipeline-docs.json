@@ -1,6 +1,6 @@
 {
   "repo": "schirmer-lab/metagear-pipeline",
-  "ref": "db08c99ab445ab2eb6c3ae38c2044a73a4303498",
+  "ref": "35a55fbf3bd23e2923d195179e20966f990ae1f2",
   "sourceDir": "docs/workflows",
   "files": [
     "index.md",
@@ -8,6 +8,7 @@
     "qc_dna.md",
     "qc_rna.md",
     "microbial_profiles.md",
-    "gene_analysis.md"
+    "genes.md",
+    "virus.md"
   ]
 }
