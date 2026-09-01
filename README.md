@@ -6,11 +6,11 @@ The site is published at <https://metagear-platform.schirmerlab.de>.
 
 The platform consists of three components, each with its own repository:
 
-| Component | Where it lives | What it does |
-|-----------|----------------|--------------|
-| **MetaGEAR Workflows** | [schirmer-lab/metagear-pipeline](https://github.com/schirmer-lab/metagear-pipeline) | Nextflow / nf-core pipeline for end-to-end metagenomic analysis. |
-| **MetaGEAR Tools (CLI)** | [schirmer-lab/metagear-tools](https://github.com/schirmer-lab/metagear-tools) | Command-line wrapper and installer for the pipeline. |
-| **MetaGEAR Explorer** | [metagear-explorer.schirmerlab.de](https://metagear-explorer.schirmerlab.de) | Hosted web portal and REST API for querying curated microbial gene catalogs. Source is not publicly available. |
+| Component                | Where it lives                                                                      | What it does                                                                                                   |
+| ------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **MetaGEAR Pipeline**    | [schirmer-lab/metagear-pipeline](https://github.com/schirmer-lab/metagear-pipeline) | Nextflow / nf-core pipeline for end-to-end metagenomic analysis.                                               |
+| **MetaGEAR Tools (CLI)** | [schirmer-lab/metagear-tools](https://github.com/schirmer-lab/metagear-tools)       | Command-line wrapper and installer for the pipeline.                                                           |
+| **MetaGEAR Explorer**    | [metagear-explorer.schirmerlab.de](https://metagear-explorer.schirmerlab.de)        | Hosted web portal and REST API for querying curated microbial gene catalogs. Source is not publicly available. |
 
 This repository contains only the **platform-level website** (overview, getting started, component summaries, citation). Component-specific technical documentation lives in each component's repository.
 

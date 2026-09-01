@@ -7,7 +7,7 @@ MetaGEAR is built at the [Schirmer Lab](https://www.mls.ls.tum.de/en/mdi/home/) 
 
 ## Three components
 
-### MetaGEAR Workflows — the pipeline
+### MetaGEAR Pipeline
 
 A Nextflow / nf-core pipeline that performs:
 

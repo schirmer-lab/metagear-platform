@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repo (`schirmer-lab/metagear-platform`) hosts the **MetaGEAR Platform** umbrella website — a high-level overview site that introduces the platform and links out to each component's own repository. It is **not** a docs aggregator; deep technical reference lives next to the code in each component repo:
 
-- **MetaGEAR Workflows** → `schirmer-lab/metagear-pipeline` (public Nextflow / nf-core-style pipeline; this is what the platform site links to and mirrors docs from). Development happens on its `dev` branch and is released to `master`; the 1.x line is archived at `schirmer-lab/metagear-pipeline-legacy`.
+- **MetaGEAR Pipeline** → `schirmer-lab/metagear-pipeline` (public Nextflow / nf-core-style pipeline; this is what the platform site links to and mirrors docs from). Development happens on its `dev` branch and is released to `master`; the 1.x line is archived at `schirmer-lab/metagear-pipeline-legacy`.
 - **MetaGEAR Tools (CLI)** → `schirmer-lab/metagear-tools` (public source, extracted from this repo on 2026-05-07)
 - **MetaGEAR Explorer** → hosted at https://metagear-explorer.schirmerlab.de. **Source is not publicly available** — there is a private repo `schirmer-lab/metagear-explorer` you may see referenced in older artifacts, but the platform site must not link to it. Refer to Explorer by its hosted URL only.
 
@@ -53,7 +53,7 @@ To add a page: create the file under `src/content/docs/`, then add it to the `si
 
 - **Target audience is microbiome researchers / wet-lab PIs**, not bioinformaticians. Biology-first framing. Mention Nextflow/Docker once and move on.
 - **One outbound link per component page** to the canonical repository — don't duplicate detailed docs here, link to them.
-- **Don't author deep reference here.** Source of truth for technical reference (per-workflow parameters, output schemas, CLI flags) lives in the component repos. Some of that content is *mirrored* into the platform site at build time so readers see it with Starlight chrome and Pagefind search — see [Mirrored docs](#mirrored-docs) — but the markdown source still belongs in the component repo. Edits go there.
+- **Don't author deep reference here.** Source of truth for technical reference (per-workflow parameters, output schemas, CLI flags) lives in the component repos. Some of that content is _mirrored_ into the platform site at build time so readers see it with Starlight chrome and Pagefind search — see [Mirrored docs](#mirrored-docs) — but the markdown source still belongs in the component repo. Edits go there.
 
 ## Styling
 

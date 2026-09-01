@@ -23,37 +23,50 @@ MSP      ──► Explore  ──► all genes in that species pangenome
 
 Paired-end shotgun metagenomic reads. You want quality-controlled, taxonomically profiled, functionally annotated outputs — on your own machine or HPC.
 
-**Use [MetaGEAR Workflows](/workflows/) + [MetaGEAR Tools (CLI)](/tools/).**
+**Use the [MetaGEAR Pipeline](/workflows/) + [MetaGEAR Tools (CLI)](/tools/).**
 
 1. **Check prerequisites**:
    - Java 17+
    - Nextflow 25+
-   - Docker *or* Singularity
+   - Docker _or_ Singularity
 
 2. **Install MetaGEAR Tools (the CLI)**:
+
    ```bash
    curl -L http://get-metagear.schirmerlab.de | bash
    ```
 
 3. **Download reference databases** (one-time):
+
    ```bash
    metagear download_databases
    ```
 
 4. **Prepare a samplesheet** (`samples.csv`):
+
    ```csv
    sample,fastq_1,fastq_2
    SAMPLE-01,/path/to/sample1_R1.fastq.gz,/path/to/sample1_R2.fastq.gz
    ```
 
 5. **Run a workflow**:
+
    ```bash
    metagear qc_dna --input samples.csv
    metagear microbial_profiles --input samples.csv
+   ```
+
+   Or run a **preset**, which chains several workflows in dependency order and reuses what each
+   produces, so nothing is recomputed:
+
+   ```bash
+   metagear profiles   --input samples.csv --outdir results/   # profiles only, no assembly
+   metagear genomes    --input samples.csv --outdir results/   # gene catalog, MAGs, pangenomes
+   metagear microbiome --input samples.csv --outdir results/   # everything, viruses included
    ```
 
 Full reference lives in the [`metagear-tools` repository](https://github.com/schirmer-lab/metagear-tools).
 
 ## Not sure which?
 
-The [What is MetaGEAR](/about/) page explains how the components fit together. Or [open an issue](https://github.com/schirmer-lab/issues) and we'll point you in the right direction.
+The [What is MetaGEAR](/about/) page explains how the components fit together. Or [open an issue](https://github.com/schirmer-lab/metagear-platform/issues) and we'll point you in the right direction.

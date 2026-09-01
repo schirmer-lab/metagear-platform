@@ -134,7 +134,7 @@ pagefind: false
 {/* ===================== FEATURE 2 · WORKFLOWS ===================== */}
 <section class="mg-feature mg-feature--reverse mg-section-alt mg-reveal">
   <div class="mg-feature__copy">
-    <span class="mg-eyebrow"><span class="mg-section-num">02</span>MetaGEAR Workflows · Pipeline</span>
+    <span class="mg-eyebrow"><span class="mg-section-num">02</span>MetaGEAR Pipeline</span>
     <h2 class="mg-feature__title">
       One Nextflow pipeline, <em>four cohesive workflows.</em>
     </h2>
@@ -153,42 +153,77 @@ pagefind: false
       <span>Nextflow ≥ 25</span><span>Docker or Singularity</span><span>MIT-licensed</span>
     </div>
     <div class="mg-actions">
-      <a class="mg-btn mg-btn--primary" href="/workflows/">Read the workflows guide →</a>
+      <a class="mg-btn mg-btn--primary" href="/workflows/">Read the pipeline guide →</a>
       <a class="mg-btn mg-btn--link" href="https://github.com/schirmer-lab/metagear-pipeline">View source ↗</a>
     </div>
   </div>
 
   <div class="mg-feature__visual">
-    <ol class="mg-pipeline" aria-label="Four cohesive workflows in MetaGEAR Workflows">
-      <li class="mg-pipeline__step">
-        <span class="mg-pipeline__num">01</span>
-        <div class="mg-pipeline__body">
-          <span class="mg-pipeline__name">Database setup</span>
-          <span class="mg-pipeline__sub">Reference DBs · Kneaddata · MetaPhlAn · HUMAnN</span>
-        </div>
-      </li>
-      <li class="mg-pipeline__step">
-        <span class="mg-pipeline__num">02</span>
-        <div class="mg-pipeline__body">
-          <span class="mg-pipeline__name">Quality control</span>
-          <span class="mg-pipeline__sub">Trim &amp; decontaminate · Kneaddata · TrimGalore</span>
-        </div>
-      </li>
-      <li class="mg-pipeline__step">
-        <span class="mg-pipeline__num">03</span>
-        <div class="mg-pipeline__body">
-          <span class="mg-pipeline__name">Microbial profiles</span>
-          <span class="mg-pipeline__sub">Taxonomic &amp; functional · MetaPhlAn · HUMAnN</span>
-        </div>
-      </li>
-      <li class="mg-pipeline__step">
-        <span class="mg-pipeline__num">04</span>
-        <div class="mg-pipeline__body">
-          <span class="mg-pipeline__name">Gene-centric analysis</span>
-          <span class="mg-pipeline__sub">Optional contig catalog assembly</span>
-        </div>
-      </li>
-    </ol>
+    <ol class="mg-pipeline" aria-label="The MetaGEAR Pipeline workflows, in the order they are run">
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">01</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Database setup</span>
+            <span class="mg-pipeline__sub">download_databases · one-time install</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">02</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Quality control</span>
+            <span class="mg-pipeline__sub">qc_dna / qc_rna · Kneaddata · TrimGalore</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">03</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Microbial profiles</span>
+            <span class="mg-pipeline__sub">microbial_profiles · MetaPhlAn · HUMAnN</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">04</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Gene catalog</span>
+            <span class="mg-pipeline__sub">genes · assembly · MMseqs2 · abundance</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">05</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Viruses &amp; plasmids</span>
+            <span class="mg-pipeline__sub">virus · geNomad · CheckV · iPHoP</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">06</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Contig classification</span>
+            <span class="mg-pipeline__sub">classification · SemiBin2 · Binette · CheckM2</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">07</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">MAG catalog</span>
+            <span class="mg-pipeline__sub">mag · dRep · GTDB-Tk</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">08</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Species pangenomes</span>
+            <span class="mg-pipeline__sub">msp · MSPminer · co-abundance</span>
+          </div>
+        </li>
+        <li class="mg-pipeline__step">
+          <span class="mg-pipeline__num">09</span>
+          <div class="mg-pipeline__body">
+            <span class="mg-pipeline__name">Protein structures</span>
+            <span class="mg-pipeline__sub">structures · ProstT5 · Foldseek · PHOLD</span>
+          </div>
+        </li>
+      </ol>
   </div>
 </section>
 
@@ -267,7 +302,7 @@ pagefind: false
         Gene-centric methodology for metagenomic analysis
       </h3>
       <p class="mg-paper__desc">
-        The methodology underlying MetaGEAR Workflows' gene-centric analysis.
+        The methodology underlying the MetaGEAR Pipeline's gene-centric analysis.
         Cite if you used the pipeline or extended the methodology.
       </p>
       <div class="mg-paper__cite">10.1101/2025.09.29.679262</div>
@@ -276,7 +311,7 @@ pagefind: false
     <a class="mg-paper" href="https://www.nature.com/articles/s41564-025-02223-0">
       <span class="mg-paper__venue">Nature Microbiology · 2025</span>
       <h3 class="mg-paper__title">
-        An applied study using MetaGEAR Workflows
+        An applied study using the MetaGEAR Pipeline
       </h3>
       <p class="mg-paper__desc">
         A peer-reviewed study that applied the pipeline to a microbiome
