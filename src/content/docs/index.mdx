@@ -7,6 +7,8 @@ hero:
 pagefind: false
 ---
 
+import PipelineFigure from '../../components/PipelineFigure.astro';
+
 
 <div class="mg-landing not-content">
 
@@ -131,100 +133,41 @@ pagefind: false
   </div>
 </section>
 
-{/* ===================== FEATURE 2 · WORKFLOWS ===================== */}
-<section class="mg-feature mg-feature--reverse mg-section-alt mg-reveal">
-  <div class="mg-feature__copy">
+{/* ===================== FEATURE 2 · PIPELINE ===================== */}
+<section class="mg-pipeline-section mg-reveal">
+  <div class="mg-pipeline-section__head">
     <span class="mg-eyebrow"><span class="mg-section-num">02</span>MetaGEAR Pipeline</span>
     <h2 class="mg-feature__title">
-      One Nextflow pipeline, <em>nine composable workflows.</em>
+      One Nextflow pipeline, <em>ten composable workflows.</em>
     </h2>
     <p class="mg-feature__lead">
-      Built on nf-core conventions. Take paired-end FASTQ files through quality
-      control, profiling, gene catalogs, viruses, bacterial genomes and species
-      pangenomes — reproducibly, on a laptop or an HPC cluster.
+      Built on nf-core conventions. Profile a cohort against reference databases, or
+      assemble it and get gene catalogs, viruses, bacterial genomes, species pangenomes
+      and protein structures — reproducibly, on a laptop or an HPC cluster.
     </p>
-    <ul class="mg-feature__points">
-      <li><strong>QC &amp; decontamination</strong> with Kneaddata and TrimGalore.</li>
-      <li><strong>Taxonomic &amp; functional profiling</strong> with MetaPhlAn and HUMAnN.</li>
-      <li><strong>Gene catalogs</strong> with MMseqs2, quantified across the cohort.</li>
-      <li><strong>Viruses and plasmids</strong> with geNomad, CheckV and PHOLD.</li>
-      <li><strong>MAGs and pangenomes</strong> with SemiBin2, Binette, dRep, GTDB-Tk and MSPminer.</li>
+  </div>
+
+  <PipelineFigure />
+
+  <div class="mg-pipeline-section__foot">
+    <ul class="mg-feature__points mg-pipeline-highlights">
+      <li><strong>Gene- and genome-resolved together.</strong> One assembly yields the
+      cohort gene catalog and the dereplicated MAGs.</li>
+      <li><strong>Viruses and plasmids alongside.</strong> Detection, host prediction and
+      viral-specific annotation, not an afterthought.</li>
+      <li><strong>Structures for the dark matter.</strong> 3Di prediction and structural
+      search reach proteins no sequence method annotates.</li>
+      <li><strong>Presets share the expensive work.</strong> Later workflows read what
+      earlier ones produced instead of recomputing it.</li>
     </ul>
     <div class="mg-feature__meta">
-      <span>Nextflow ≥ 25</span><span>Docker or Singularity</span><span>MIT-licensed</span>
+      <span>10 workflows</span><span>58 modules</span><span>Nextflow &ge; 25</span>
+      <span>Docker or Singularity</span><span>MIT-licensed</span>
     </div>
     <div class="mg-actions">
       <a class="mg-btn mg-btn--primary" href="/workflows/">Read the pipeline guide →</a>
       <a class="mg-btn mg-btn--link" href="https://github.com/schirmer-lab/metagear-pipeline">View source ↗</a>
     </div>
-  </div>
-
-  <div class="mg-feature__visual">
-    <ol class="mg-pipeline" aria-label="The MetaGEAR Pipeline workflows, in the order they are run">
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">01</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Database setup</span>
-            <span class="mg-pipeline__sub">download_databases · one-time install</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">02</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Quality control</span>
-            <span class="mg-pipeline__sub">qc_dna / qc_rna · Kneaddata · TrimGalore</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">03</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Microbial profiles</span>
-            <span class="mg-pipeline__sub">microbial_profiles · MetaPhlAn · HUMAnN</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">04</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Gene catalog</span>
-            <span class="mg-pipeline__sub">genes · assembly · MMseqs2 · abundance</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">05</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Viruses &amp; plasmids</span>
-            <span class="mg-pipeline__sub">virus · geNomad · CheckV · iPHoP</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">06</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Contig classification</span>
-            <span class="mg-pipeline__sub">classification · SemiBin2 · Binette · CheckM2</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">07</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">MAG catalog</span>
-            <span class="mg-pipeline__sub">mag · dRep · GTDB-Tk</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">08</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Species pangenomes</span>
-            <span class="mg-pipeline__sub">msp · MSPminer · co-abundance</span>
-          </div>
-        </li>
-        <li class="mg-pipeline__step">
-          <span class="mg-pipeline__num">09</span>
-          <div class="mg-pipeline__body">
-            <span class="mg-pipeline__name">Protein structures</span>
-            <span class="mg-pipeline__sub">structures · ProstT5 · Foldseek · PHOLD</span>
-          </div>
-        </li>
-      </ol>
   </div>
 </section>
 

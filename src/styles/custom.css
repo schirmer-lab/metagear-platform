@@ -594,89 +594,7 @@ a.mg-feature__shot:hover {
   padding: clamp(1rem, 2vw, 1.75rem);
 }
 
-/* Workflows timeline — HTML, not SVG, so it uses real Inter and stays readable */
-.mg-pipeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  counter-reset: mg-pipeline;
-}
-
-.mg-pipeline__step {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 1.1rem;
-  padding: 1rem 1.25rem;
-  background: var(--sl-color-bg);
-  border: 1px solid var(--mg-rule);
-  border-radius: var(--mg-radius-md);
-  position: relative;
-  transition: border-color 200ms ease, transform 200ms ease;
-}
-
-.mg-pipeline__step:hover {
-  border-color: color-mix(in srgb, var(--sl-color-accent) 45%, var(--mg-rule));
-  transform: translateX(2px);
-}
-
 /* Connector line between steps */
-.mg-pipeline__step::before {
-  content: '';
-  position: absolute;
-  left: 2.05rem;
-  bottom: -0.75rem;
-  width: 1px;
-  height: 0.75rem;
-  background: var(--mg-rule);
-}
-
-.mg-pipeline__step:last-child::before {
-  display: none;
-}
-
-.mg-pipeline__num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
-  border-radius: 50%;
-  background: var(--sl-color-accent);
-  color: #ffffff;
-  font-family: var(--mg-font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  flex-shrink: 0;
-}
-
-.mg-pipeline__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  min-width: 0;
-}
-
-.mg-pipeline__name {
-  font-family: var(--mg-font-body);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--mg-text-strong);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.mg-pipeline__sub {
-  font-family: var(--mg-font-body);
-  font-size: 0.82rem;
-  color: var(--mg-text-muted);
-  line-height: 1.4;
-}
-
 /* Terminal-style demo block ------------------------------ */
 .mg-terminal {
   font-family: var(--mg-font-mono);
@@ -1284,3 +1202,187 @@ html.is-landing .mg-landing-topbar {
 }
 
 /* ============================================================ */
+
+/* 9. Pipeline figure ─────────────────────────────────────── */
+/* Dark is the site default, so the base block is dark and [data-theme='light']
+   overrides it — same convention as the tokens in section 2. Neutrals alias the
+   site tokens so the figure tracks any future theme change. */
+:root {
+  --mgf-bg: var(--sl-color-bg);
+  --mgf-band: var(--mg-surface);
+  --mgf-bandln: rgba(255, 255, 255, 0.09);
+  --mgf-card: var(--mg-surface-2);
+  --mgf-cardln: rgba(255, 255, 255, 0.11);
+  --mgf-sh: rgba(0, 0, 0, 0.5);
+  --mgf-ink: var(--mg-text-strong);
+  --mgf-body: var(--mg-text-body);
+  --mgf-muted: var(--mg-text-muted);
+  --mgf-rule: rgba(255, 255, 255, 0.09);
+  --mgf-railbg: #0d2e2a;
+  --mgf-railfg: #f5f5f7;
+  --mgf-teal: #2dd4bf;
+  --mgf-teal-s: #10322e;
+  --mgf-teal-tint: #101a1c;
+  --mgf-indi: #a595f5;
+  --mgf-indi-s: #241f42;
+  --mgf-ambr: #efb454;
+  --mgf-ambr-s: #3a2b12;
+  --mgf-ambr-tint: #19150f;
+  --mgf-arw: #7ba6e8;
+}
+
+:root[data-theme='light'] {
+  --mgf-band: #ffffff;
+  --mgf-bandln: #dae3ee;
+  --mgf-card: #ffffff;
+  --mgf-cardln: #dbe3ef;
+  --mgf-sh: rgba(20, 40, 80, 0.1);
+  --mgf-rule: #e3e9f2;
+  --mgf-railbg: #0d3b36;
+  --mgf-railfg: #ffffff;
+  --mgf-teal: #0f8a7c;
+  --mgf-teal-s: #e6f6f3;
+  --mgf-teal-tint: #f3fbf9;
+  --mgf-indi: #5b4bc4;
+  --mgf-indi-s: #ecebfb;
+  --mgf-ambr: #c97a09;
+  --mgf-ambr-s: #fdf1dd;
+  --mgf-ambr-tint: #fffbf3;
+  --mgf-arw: #1d4a8c;
+}
+
+/* The figure is dense and wide; it scrolls rather than shrinking to illegible. */
+.mg-fig-wrap {
+  margin: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: var(--mg-radius-lg);
+}
+
+.mg-fig-wrap .mg-fig {
+  display: block;
+  width: 100%;
+  min-width: 62rem;
+  height: auto;
+}
+
+/* 10. Pipeline section ───────────────────────────────────── */
+.mg-pipeline-section {
+  padding-block: var(--mg-space-xl) var(--mg-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mg-space-lg);
+}
+
+.mg-pipeline-section__head {
+  text-align: center;
+  max-width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mg-pipeline-section__head .mg-feature__title {
+  max-width: 24ch;
+}
+
+.mg-pipeline-section__head .mg-feature__lead {
+  max-width: 62ch;
+}
+
+.mg-pipeline-section__foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mg-space-md);
+  align-items: center;
+}
+
+.mg-pipeline-highlights {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem 1.75rem;
+  width: 100%;
+  font-size: var(--mg-text-sm);
+}
+
+@media (max-width: 60rem) {
+  .mg-pipeline-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 34rem) {
+  .mg-pipeline-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mg-fig-wrap .mg-fig .teal{--h:var(--mgf-teal);--hs:var(--mgf-teal-s)}
+.mg-fig-wrap .mg-fig .indi{--h:var(--mgf-indi);--hs:var(--mgf-indi-s)}
+.mg-fig-wrap .mg-fig .ambr{--h:var(--mgf-ambr);--hs:var(--mgf-ambr-s)}
+.mg-fig-wrap .mg-fig .wht {--h:var(--mgf-railfg);--disc-ko:var(--mgf-railbg)}
+.mg-fig-wrap .mg-fig .s-teal{stop-color:var(--mgf-teal)}
+.mg-fig-wrap .mg-fig .s-indi{stop-color:var(--mgf-indi)}
+
+/* bands */
+.mg-fig-wrap .mg-fig .band{fill:var(--mgf-band);stroke:var(--mgf-bandln);stroke-width:1.4}
+.mg-fig-wrap .mg-fig .tint-teal{fill:var(--mgf-teal-tint)}
+.mg-fig-wrap .mg-fig .tint-amber{fill:var(--mgf-ambr-tint)}
+.mg-fig-wrap .mg-fig .railblk{fill:var(--mgf-railbg)}
+.mg-fig-wrap .mg-fig .vrule{stroke:var(--mgf-rule);stroke-width:1.4}
+.mg-fig-wrap .mg-fig .hrule{stroke:var(--mgf-rule);stroke-width:1}
+.mg-fig-wrap .mg-fig .dashrule{stroke:var(--mgf-railfg);stroke-opacity:.28;stroke-width:1.4;stroke-dasharray:5 5}
+.mg-fig-wrap .mg-fig .deco{fill:none;stroke:var(--mgf-railfg);stroke-opacity:.09;stroke-width:1.1}
+
+/* cards */
+.mg-fig-wrap .mg-fig .step{fill:var(--mgf-card);stroke:var(--mgf-cardln);stroke-width:1.4}
+.mg-fig-wrap .mg-fig .wcard{fill:var(--mgf-card);stroke:var(--mgf-cardln);stroke-width:1.4}
+.mg-fig-wrap .mg-fig .sh{fill:var(--mgf-sh);filter:blur(5px)}
+
+/* iconography */
+.mg-fig-wrap .mg-fig .disc{fill:var(--hs);stroke:var(--h);stroke-opacity:.28;stroke-width:1.4}
+.mg-fig-wrap .mg-fig .disc-solid{fill:var(--h)}
+.mg-fig-wrap .mg-fig .gl,.mg-fig-wrap .mg-fig .gl-ko{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.mg-fig-wrap .mg-fig .gl *,.mg-fig-wrap .mg-fig .gl-ko *{vector-effect:non-scaling-stroke;stroke-width:var(--sw,1.7)}
+.mg-fig-wrap .mg-fig .gl{stroke:var(--h)}
+.mg-fig-wrap .mg-fig .gl-ko{stroke:var(--disc-ko,#fff)}
+.mg-fig-wrap .mg-fig .bul{fill:var(--h)}
+
+/* connectors */
+.mg-fig-wrap .mg-fig .arw{fill:none;stroke:var(--mgf-arw);stroke-width:2.6;stroke-linecap:round;stroke-opacity:.72}
+.mg-fig-wrap .mg-fig .arw.big{stroke-width:4.4;stroke-opacity:.92}
+.mg-fig-wrap .mg-fig .tipf-arw{fill:var(--mgf-arw);fill-opacity:.72}
+.mg-fig-wrap .mg-fig .tipf-big{fill:var(--mgf-arw)}
+
+/* type */
+.mg-fig-wrap .mg-fig text{font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.mg-fig-wrap .mg-fig .h1{font:800 32px/1 Manrope,Inter,sans-serif;fill:var(--mgf-ink);text-anchor:middle;
+  letter-spacing:-.018em}
+.mg-fig-wrap .mg-fig .h2{font:400 italic 17px/1 Inter,sans-serif;fill:var(--mgf-muted);text-anchor:middle}
+.mg-fig-wrap .mg-fig .h3{font:600 11px/1 Inter,sans-serif;fill:var(--mgf-muted);text-anchor:middle;
+  letter-spacing:.16em;font-variant-numeric:tabular-nums}
+.mg-fig-wrap .mg-fig .raillbl{font:800 15px/1 Manrope,Inter,sans-serif;fill:var(--h);letter-spacing:.005em}
+.mg-fig-wrap .mg-fig .raillbl.on-dark{fill:var(--mgf-railfg);letter-spacing:.05em}
+.mg-fig-wrap .mg-fig .railsub{font:600 10.5px/1 Inter,sans-serif;fill:var(--mgf-muted);letter-spacing:.09em}
+.mg-fig-wrap .mg-fig .sublbl{font:700 11.5px/1 Inter,sans-serif;fill:var(--mgf-muted);letter-spacing:.15em}
+.mg-fig-wrap .mg-fig .stept{font:500 16px/1 'JetBrains Mono',ui-monospace,monospace;fill:var(--mgf-ink);
+  letter-spacing:-.02em}
+.mg-fig-wrap .mg-fig .stepsub{font:400 12px/1 Inter,sans-serif;fill:var(--mgf-muted)}
+.mg-fig-wrap .mg-fig .wfname{font:600 19px/1 'JetBrains Mono',ui-monospace,monospace;fill:var(--mgf-ink);
+  letter-spacing:-.025em}
+.mg-fig-wrap .mg-fig .wfname.big{font-size:22px}
+.mg-fig-wrap .mg-fig .out{font:400 15px/1 Inter,sans-serif;fill:var(--mgf-body)}
+.mg-fig-wrap .mg-fig .detin{font-size:12.5px;fill:var(--mgf-muted)}
+.mg-fig-wrap .mg-fig .oname{font:700 15px/1 Inter,sans-serif;fill:var(--mgf-ink)}
+.mg-fig-wrap .mg-fig .odesc{font:400 13.5px/1 Inter,sans-serif;fill:var(--mgf-muted)}
+.mg-fig-wrap .mg-fig .prename{font:700 17px/1 Manrope,Inter,sans-serif;fill:var(--mgf-ambr)}
+.mg-fig-wrap .mg-fig .pdesc{font:400 14px/1 Inter,sans-serif;fill:var(--mgf-body)}
+.mg-fig-wrap .mg-fig .plus{font:600 17px/1 Inter,sans-serif;fill:var(--mgf-muted)}
+
+/* pills */
+.mg-fig-wrap .mg-fig .pill{fill:var(--mgf-teal-s);stroke:var(--mgf-teal);stroke-opacity:.34;stroke-width:1.3}
+.mg-fig-wrap .mg-fig .pill-t{font:500 13.5px/1 'JetBrains Mono',ui-monospace,monospace;fill:var(--mgf-ink);
+  text-anchor:middle;letter-spacing:-.02em}
+.mg-fig-wrap .mg-fig .ref{fill:var(--mgf-indi-s);stroke:var(--mgf-indi);stroke-opacity:.5;stroke-width:1.4}
+.mg-fig-wrap .mg-fig .ref-t{fill:var(--mgf-indi);font-weight:600}
