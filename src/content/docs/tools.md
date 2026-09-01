@@ -67,11 +67,13 @@ SAMPLE-02,/path/to/sample2_R1.fastq.gz,/path/to/sample2_R2.fastq.gz
 A preset runs several workflows in dependency order in one workspace, with `--reuse-outputs` switched
 on so each step picks up what the ones before it produced instead of recomputing:
 
-| Preset       | Runs                                                 |
-| ------------ | ---------------------------------------------------- |
-| `profiles`   | `microbial_profiles`                                 |
-| `genomes`    | `genes` → `classification` → `mag` → `msp`           |
-| `microbiome` | `genes` → `virus` → `classification` → `mag` → `msp` |
+| Preset       | Runs                                       |
+| ------------ | ------------------------------------------ |
+| `profiles`   | `microbial_profiles`                       |
+| `genomes`    | `genes` → `classification` → `mag` → `msp` |
+| `microbiome` | `genomes` + `virus`                        |
+
+→ **[Presets](/presets/)** — what each one produces and what it costs.
 
 ```bash
 metagear microbiome --input samples.csv --outdir results/

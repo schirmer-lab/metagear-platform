@@ -163,6 +163,7 @@ export default defineConfig({
         { label: 'Home', link: '/' },
         { label: 'What is MetaGEAR', link: '/about/' },
         { label: 'Get started', link: '/get-started/' },
+        { label: 'Presets', link: '/presets/' },
         {
           label: 'Components',
           items: [

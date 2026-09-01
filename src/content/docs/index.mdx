@@ -62,20 +62,80 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
   </div>
 </section>
 
-{/* ===================== EXPLORER SHOWCASE ===================== */}
-<section class="mg-showcase mg-reveal" aria-label="MetaGEAR Explorer preview">
-  <a class="mg-showcase__frame" href="https://metagear-explorer.schirmerlab.de" aria-label="Open MetaGEAR Explorer">
-    <img
-      src="/explorer-screenshot.png"
-      alt="MetaGEAR Explorer landing page showing gene-centric search across published microbiome cohorts."
-      loading="eager"
-    />
-    <div class="mg-showcase__url">metagear-explorer.schirmerlab.de</div>
+{/* ===================== SHOWCASE · TWO PEERS ===================== */}
+{/* The pipeline and the portal get equal billing here. Each tile scrolls to its
+    own section; the outbound links live down there, not on the tile. */}
+<section class="mg-duo mg-reveal" aria-label="What MetaGEAR gives you">
+
+  <a class="mg-duo__tile" href="#pipeline">
+    <div>
+      <span class="mg-duo__kicker">Run it on your own data</span>
+      <h2 class="mg-duo__title">MetaGEAR Pipeline</h2>
+    </div>
+    <p class="mg-duo__lead">
+      Ten composable Nextflow workflows, from raw reads to gene catalogs, MAGs,
+      viruses and protein structures. Three presets run the common paths end to end.
+    </p>
+    <div class="mg-duo__visual">
+      <div class="mg-presets">
+        <div class="mg-presets__row">
+          <span class="mg-presets__name">profiles</span>
+          <span class="mg-presets__chain">
+            <span class="mg-presets__step">microbial_profiles</span>
+          </span>
+        </div>
+        <div class="mg-presets__row">
+          <span class="mg-presets__name">genomes</span>
+          <span class="mg-presets__chain">
+            <span class="mg-presets__step">genes</span>
+            <i class="mg-presets__sep">→</i>
+            <span class="mg-presets__step">classification</span>
+            <i class="mg-presets__sep">→</i>
+            <span class="mg-presets__step">mag</span>
+            <i class="mg-presets__sep">→</i>
+            <span class="mg-presets__step">msp</span>
+          </span>
+        </div>
+        <div class="mg-presets__row">
+          <span class="mg-presets__name">microbiome</span>
+          <span class="mg-presets__chain">
+            <span class="mg-presets__step mg-presets__step--ref">genomes</span>
+            <i class="mg-presets__sep">+</i>
+            <span class="mg-presets__step">virus</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <span class="mg-duo__cta">See what each workflow gives you <span aria-hidden="true">↓</span></span>
   </a>
+
+  <a class="mg-duo__tile" href="#explorer">
+    <div>
+      <span class="mg-duo__kicker">Query cohorts already processed</span>
+      <h2 class="mg-duo__title">MetaGEAR Explorer</h2>
+    </div>
+    <p class="mg-duo__lead">
+      A hosted portal for searching bacterial genes across uniformly-processed
+      published cohorts. No install, no data of your own required.
+    </p>
+    <div class="mg-duo__visual">
+      <div class="mg-duo__shot">
+        <img
+          src="/explorer-screenshot.png"
+          alt="MetaGEAR Explorer landing page showing gene-centric search across published microbiome cohorts."
+          loading="eager"
+          width="3050"
+          height="2190"
+        />
+      </div>
+    </div>
+    <span class="mg-duo__cta">More about Explorer <span aria-hidden="true">↓</span></span>
+  </a>
+
 </section>
 
 {/* ===================== FEATURE 1 · EXPLORER ===================== */}
-<section class="mg-feature mg-reveal">
+<section class="mg-feature mg-reveal" id="explorer">
   <div class="mg-feature__copy">
     <span class="mg-eyebrow"><span class="mg-section-num">01</span>MetaGEAR Explorer · Web portal</span>
     <h2 class="mg-feature__title">
@@ -134,7 +194,7 @@ import PipelineFigure from '../../components/PipelineFigure.astro';
 </section>
 
 {/* ===================== FEATURE 2 · PIPELINE ===================== */}
-<section class="mg-pipeline-section mg-reveal">
+<section class="mg-pipeline-section mg-reveal" id="pipeline">
   <div class="mg-pipeline-section__head">
     <span class="mg-eyebrow"><span class="mg-section-num">02</span>MetaGEAR Pipeline</span>
     <h2 class="mg-feature__title">

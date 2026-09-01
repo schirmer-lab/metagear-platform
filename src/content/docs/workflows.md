@@ -35,11 +35,11 @@ repository so it always matches the released code.
 Most cohorts do not need one workflow at a time. **MetaGEAR Tools** ships presets that run several in
 order in one workspace, each reusing what the ones before it produced:
 
-| Preset       | Runs                                                 | Use it when                                                          |
-| ------------ | ---------------------------------------------------- | -------------------------------------------------------------------- |
-| `profiles`   | `microbial_profiles`                                 | You want reference-based profiles only. No assembly, so much faster. |
-| `genomes`    | `genes` → `classification` → `mag` → `msp`           | You want the assembled prokaryotic picture.                          |
-| `microbiome` | `genes` → `virus` → `classification` → `mag` → `msp` | You want everything, viruses and plasmids included.                  |
+| Preset       | Runs                                       | Use it when                                                    |
+| ------------ | ------------------------------------------ | -------------------------------------------------------------- |
+| `profiles`   | `microbial_profiles`                       | Reference-based profiles only, without assembling the cohort.  |
+| `genomes`    | `genes` → `classification` → `mag` → `msp` | You want the assembled bacterial picture.                      |
+| `microbiome` | `genomes` + `virus`                        | You want everything, viruses and plasmids included.            |
 
 ```bash
 metagear microbiome --input samplesheet.csv --outdir results/
@@ -48,6 +48,8 @@ metagear microbiome --input samplesheet.csv --outdir results/
 A preset is not a separate analysis — it is the same workflows in dependency order, with
 `--reuse-outputs` switched on so nothing is recomputed. Running them by hand in the same order gives
 the same result.
+
+→ **[Presets](/presets/)** — what each one produces, what it costs, and how to preview a run.
 
 ## How you run it
 
