@@ -1,6 +1,6 @@
 ---
 title: MetaGEAR Platform
-description: An integrated bioinformatics platform for microbiome research. A pipeline, a CLI, and a web portal — built at the Schirmer Lab.
+description: An integrated bioinformatics platform for microbiome research. A pipeline, a web portal, and a CLI — built at the Schirmer Lab.
 template: splash
 hero:
   tagline: ''
@@ -52,15 +52,8 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
     CTAs — the showcase band that used to duplicate them is gone. */}
 <section class="mg-hero mg-reveal" id="top">
   <div class="mg-hero__inner">
-    <h1 class="mg-hero__title">
-      Microbiome research,
-      <em>end&#8209;to&#8209;end.</em>
-    </h1>
-    <p class="mg-hero__lead">
-      A Nextflow pipeline, a hosted gene portal, and a CLI — built at the
-      Schirmer Lab to take shotgun metagenomes from raw reads to biological
-      hypotheses.
-    </p>
+    <h1 class="mg-hero__title">Microbiome research, <em>end&#8209;to&#8209;end.</em></h1>
+    <p class="mg-hero__lead">A Nextflow pipeline, a hosted gene portal, and a CLI — built at the Schirmer Lab to take shotgun metagenomes from raw reads to biological hypotheses.</p>
     <div class="mg-actions">
       <a class="mg-btn mg-btn--primary mg-btn--lg" href="/get-started/">
         Get started <span aria-hidden="true">→</span>
@@ -75,26 +68,17 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-components">
     <a class="mg-component" href="#pipeline">
       <span class="mg-component__name">MetaGEAR Pipeline</span>
-      <span class="mg-component__desc">
-        Ten composable Nextflow workflows taking raw reads to gene catalogs,
-        MAGs, viruses and protein structures.
-      </span>
+      <span class="mg-component__desc">Ten composable Nextflow workflows taking raw reads to gene catalogs, MAGs, viruses and protein structures.</span>
       <span class="mg-component__go">What it produces <span aria-hidden="true">↓</span></span>
     </a>
     <a class="mg-component" href="#explorer">
       <span class="mg-component__name">MetaGEAR Explorer</span>
-      <span class="mg-component__desc">
-        A hosted portal for querying bacterial genes across cohorts the
-        pipeline has already processed.
-      </span>
+      <span class="mg-component__desc">A hosted portal for querying bacterial genes across cohorts the pipeline has already processed.</span>
       <span class="mg-component__go">What you can search <span aria-hidden="true">↓</span></span>
     </a>
     <a class="mg-component" href="#tools">
       <span class="mg-component__name">MetaGEAR Tools</span>
-      <span class="mg-component__desc">
-        A command-line wrapper that installs the pipeline, manages databases
-        and runs a whole preset with one command.
-      </span>
+      <span class="mg-component__desc">A command-line wrapper that installs the pipeline, manages databases and runs a whole preset with one command.</span>
       <span class="mg-component__go">How you run it <span aria-hidden="true">↓</span></span>
     </a>
   </div>
@@ -106,15 +90,8 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Pipeline</span>
-      <h2 class="mg-feature__title">
-        One Nextflow pipeline, <em>ten composable workflows.</em>
-      </h2>
-      <p class="mg-feature__lead">
-        Built on nf-core conventions. Profile a cohort against reference
-        databases, or assemble it and get gene catalogs, viruses, bacterial
-        genomes, species pangenomes and protein structures — reproducibly, on a
-        laptop or an HPC cluster.
-      </p>
+      <h2 class="mg-feature__title">One Nextflow pipeline, <em>ten composable workflows.</em></h2>
+      <p class="mg-feature__lead">Built on nf-core conventions. Profile a cohort against reference databases, or assemble it and get gene catalogs, viruses, bacterial genomes, species pangenomes and protein structures — reproducibly, on a laptop or an HPC cluster.</p>
     </div>
 
     <PipelineFigure />
@@ -122,14 +99,10 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
 
     <div class="mg-sec__foot">
       <ul class="mg-feature__points mg-points--grid">
-        <li><strong>Gene- and genome-resolved together.</strong> One assembly yields the
-        cohort gene catalog and the dereplicated MAGs.</li>
-        <li><strong>Viruses and plasmids alongside.</strong> Detection, host prediction and
-        viral-specific annotation, not an afterthought.</li>
-        <li><strong>Structures for the dark matter.</strong> 3Di prediction and structural
-        search reach proteins no sequence method annotates.</li>
-        <li><strong>Presets share the expensive work.</strong> Later workflows read what
-        earlier ones produced instead of recomputing it.</li>
+        <li><strong>Gene- and genome-resolved together.</strong> One assembly yields the cohort gene catalog and the dereplicated MAGs.</li>
+        <li><strong>Viruses and plasmids alongside.</strong> Detection, host prediction, lifestyle calls and plasmid typing, in the same run.</li>
+        <li><strong>Structures for the dark matter.</strong> 3Di prediction and structural search recover function where sequence homology leaves proteins unassigned.</li>
+        <li><strong>Presets share the expensive work.</strong> Later workflows read what earlier ones produced instead of recomputing it.</li>
       </ul>
       <div class="mg-feature__meta">
         <span>10 workflows</span><span>58 modules</span><span>Nextflow &ge; 25</span>
@@ -150,22 +123,17 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Explorer</span>
-      <h2 class="mg-feature__title">
-        Query bacterial genes against <em>cohorts the pipeline already processed.</em>
-      </h2>
-      <p class="mg-feature__lead">
-        Explorer serves the gene catalogs produced by the pipeline above. Bring a
-        sequence, a Pfam domain, or an MSP identifier and get back where it shows up
-        across uniformly-processed cohorts — with cohort and sample metadata attached
-        to every result.
-      </p>
+      <h2 class="mg-feature__title">Query bacterial genes against <em>cohorts the pipeline already processed.</em></h2>
+      <p class="mg-feature__lead">Explorer serves the gene catalogs produced by the pipeline above. Bring a sequence, a Pfam domain, or an MSP identifier and get back where it shows up across uniformly-processed cohorts — with cohort and sample metadata attached to every result.</p>
     </div>
 
     <a class="mg-shot" href="https://metagear-explorer.schirmerlab.de">
       <img
         src="/explorer-screenshot.webp"
         alt="MetaGEAR Explorer landing page: gene-centric search across published microbiome cohorts, with counts for gene families, cohorts, stool samples and species pangenomes."
-        loading="eager"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
         width="2200"
         height="1580"
       />
@@ -175,11 +143,11 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
       <ul class="mg-feature__points mg-points--grid">
         <li><strong>BLAST</strong> a nucleotide or protein sequence against cohort-wide gene catalogs.</li>
         <li><strong>Browse by Pfam domain</strong> (e.g. <code>PF08020</code>) to find every gene that contains it.</li>
-        <li><strong>Explore MSPs</strong> — curated Metagenomic Species Pangenomes.</li>
+        <li><strong>Explore MSPs</strong> — MetaSpecies Pangenomes built from each cohort&rsquo;s own gene catalog.</li>
         <li><strong>Filter by cohort</strong>: IBD, CRC, healthy controls. Every hit traces back to its sample.</li>
       </ul>
       <div class="mg-feature__meta">
-        <span>No install</span><span>Free hosted service</span><span>Seconds to first hit</span>
+        <span>No install</span><span>Free hosted service</span><span>Public API</span>
       </div>
       <div class="mg-actions">
         <a class="mg-btn mg-btn--primary" href="https://metagear-explorer.schirmerlab.de">
@@ -197,14 +165,8 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">MetaGEAR Tools · CLI</span>
-      <h2 class="mg-feature__title">
-        Install the pipeline. <em>Run a workflow.</em> Skip the Nextflow learning curve.
-      </h2>
-      <p class="mg-feature__lead">
-        A small command-line wrapper that installs the pipeline, detects your
-        hardware, manages reference databases, and runs workflows and presets with
-        one command.
-      </p>
+      <h2 class="mg-feature__title">Install the pipeline. <em>Run a workflow.</em> Skip the Nextflow learning curve.</h2>
+      <p class="mg-feature__lead">A small command-line wrapper that installs the pipeline, detects your hardware, manages reference databases, and runs workflows and presets with one command.</p>
     </div>
 
     <div class="mg-terminal" role="img" aria-label="Terminal showing MetaGEAR Tools install and run commands.">
@@ -216,7 +178,7 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
       </div>
       <div class="mg-terminal__body">
         <div><span class="comment"># Install MetaGEAR (one-time)</span></div>
-        <div><span class="prompt">$</span> <span class="cmd">curl -L http://get-metagear.schirmerlab.de | bash</span></div>
+        <div><span class="prompt">$</span> <span class="cmd">curl -L https://get-metagear.schirmerlab.de | bash</span></div>
         <div><span class="out">→ installed to ~/.metagear · 36 CPUs / 64 GB detected</span></div>
         <div>&nbsp;</div>
         <div><span class="comment"># Download reference databases</span></div>
@@ -235,6 +197,9 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
         <li><strong>Presets built in</strong>: one command runs a whole chain in order.</li>
         <li><strong>Multi-machine</strong>: <code>metagear cluster</code> spreads a cohort across nodes.</li>
       </ul>
+      <div class="mg-feature__meta">
+        <span>Linux &amp; macOS</span><span>Docker or Singularity</span><span>MIT-licensed</span>
+      </div>
       <div class="mg-actions">
         <a class="mg-btn mg-btn--primary" href="/tools/">Install MetaGEAR Tools →</a>
         <a class="mg-btn mg-btn--link" href="https://github.com/schirmer-lab/metagear-tools">View source ↗</a>
@@ -249,44 +214,27 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">Publications</span>
-      <h2 class="mg-feature__title">
-        Cite the work that matches <em>what you used.</em>
-      </h2>
+      <h2 class="mg-feature__title">Cite the work that matches <em>what you used.</em></h2>
     </div>
 <div class="mg-publications">
     <a class="mg-paper" href="https://www.biorxiv.org/content/10.64898/2026.03.30.715271">
       <span class="mg-paper__venue">bioRxiv · 2026</span>
-      <h3 class="mg-paper__title">
-        MetaGEAR Explorer: rapid query of microbial genes across cohorts
-      </h3>
-      <p class="mg-paper__desc">
-        The Explorer portal and its underlying gene-centric query infrastructure.
-        Cite if you used Explorer or the API.
-      </p>
+      <h3 class="mg-paper__title">MetaGEAR Explorer: rapid query of microbial genes across cohorts</h3>
+      <p class="mg-paper__desc">The Explorer portal and its underlying gene-centric query infrastructure. Cite if you used Explorer or the API.</p>
       <div class="mg-paper__cite">10.64898/2026.03.30.715271</div>
     </a>
 
     <a class="mg-paper" href="https://www.biorxiv.org/content/10.1101/2025.09.29.679262v1">
       <span class="mg-paper__venue">bioRxiv · 2025</span>
-      <h3 class="mg-paper__title">
-        Gene-centric methodology for metagenomic analysis
-      </h3>
-      <p class="mg-paper__desc">
-        The methodology underlying the MetaGEAR Pipeline's gene-centric analysis.
-        Cite if you used the pipeline or extended the methodology.
-      </p>
+      <h3 class="mg-paper__title">Gene-centric methodology for metagenomic analysis</h3>
+      <p class="mg-paper__desc">The methodology underlying the MetaGEAR Pipeline's gene-centric analysis. Cite if you used the pipeline or extended the methodology.</p>
       <div class="mg-paper__cite">10.1101/2025.09.29.679262</div>
     </a>
 
     <a class="mg-paper" href="https://www.nature.com/articles/s41564-025-02223-0">
       <span class="mg-paper__venue">Nature Microbiology · 2025</span>
-      <h3 class="mg-paper__title">
-        An applied study using the MetaGEAR Pipeline
-      </h3>
-      <p class="mg-paper__desc">
-        A peer-reviewed study that applied the pipeline to a microbiome
-        research question. Cite alongside the methodology paper for similar work.
-      </p>
+      <h3 class="mg-paper__title">An applied study using the MetaGEAR Pipeline</h3>
+      <p class="mg-paper__desc">A peer-reviewed study that applied the pipeline to a microbiome research question. Cite alongside the methodology paper for similar work.</p>
       <div class="mg-paper__cite">s41564-025-02223-0</div>
     </a>
   </div>
@@ -299,9 +247,7 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
   <div class="mg-sec__body">
     <div class="mg-sec__head">
       <span class="mg-eyebrow">Contributors</span>
-      <h2 class="mg-feature__title">
-        Contributed to <em>MetaGEAR:</em>
-      </h2>
+      <h2 class="mg-feature__title">Contributed to <em>MetaGEAR:</em></h2>
     </div>
 <ul class="mg-contributors">
     {[
@@ -313,19 +259,7 @@ import wordmarkDark from '../../assets/wordmark-dark.svg';
       'SimHolz',
       'sahoo2000',
     ].map((handle) => (
-      <li class="mg-contributor" key={handle}>
-        <a class="mg-contributor__link" href={`https://github.com/${handle}`} aria-label={`${handle} on GitHub`}>
-          <img
-            class="mg-contributor__avatar"
-            src={`https://github.com/${handle}.png?size=120`}
-            alt=""
-            loading="lazy"
-            width="60"
-            height="60"
-          />
-          <span class="mg-contributor__handle">@{handle}</span>
-        </a>
-      </li>
+      <li class="mg-contributor"><a class="mg-contributor__link" href={`https://github.com/${handle}`} aria-label={`${handle} on GitHub`}> <img class="mg-contributor__avatar" src={`https://github.com/${handle}.png?size=120`} alt="" loading="lazy" width="60" height="60" /> <span class="mg-contributor__handle">@{handle}</span> </a></li>
     ))}
   </ul>
   </div>

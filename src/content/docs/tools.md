@@ -27,7 +27,7 @@ Nextflow and nf-core are powerful but have a learning curve. MetaGEAR Tools remo
 **1. Run the installer.**
 
 ```bash
-curl -L http://get-metagear.schirmerlab.de | bash
+curl -L https://get-metagear.schirmerlab.de | bash
 ```
 
 Latest stable release, installed to `~/.metagear/`.
@@ -35,7 +35,7 @@ Latest stable release, installed to `~/.metagear/`.
 **2. (Optional) Pin a specific pipeline version.**
 
 ```bash
-curl -L http://get-metagear.schirmerlab.de | bash -s -- --pipeline 1.0
+curl -L https://get-metagear.schirmerlab.de | bash -s -- --pipeline 26.09.1
 ```
 
 **3. Review generated configuration** in `~/.metagear/metagear.config` and `~/.metagear/metagear.env`. Adjust paths or resource limits if needed.

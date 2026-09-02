@@ -33,7 +33,7 @@ Paired-end shotgun metagenomic reads. You want quality-controlled, taxonomically
 2. **Install MetaGEAR Tools (the CLI)**:
 
    ```bash
-   curl -L http://get-metagear.schirmerlab.de | bash
+   curl -L https://get-metagear.schirmerlab.de | bash
    ```
 
 3. **Download reference databases** (one-time):

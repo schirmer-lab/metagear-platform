@@ -267,19 +267,6 @@ body {
   }
 }
 
-/* SHOWCASE: the big Explorer screenshot under the hero.
- * The macOS screenshot already has its own window chrome, rounded corners,
- * and baked-in shadow. We add nothing structural — just a subtle drop-shadow
- * filter that respects the image alpha{
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 0.6fr;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.1rem;
-  border-bottom: 1px solid var(--mg-rule);
-  color: var(--mg-text-body);
-}
-
 /* FEATURE SECTIONS --------------------------------------- */
 .mg-feature__title {
   font-family: var(--mg-font-body);
@@ -368,7 +355,7 @@ body {
   font-size: 0.875rem;
   background: #0c0f14;
   border-radius: var(--mg-radius-lg);
-  border: 1px solid var(--mg-rule);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.35);
 }
@@ -389,14 +376,11 @@ body {
   background: rgba(255, 255, 255, 0.18);
 }
 
-.mg-terminal__dot:nth-child(1) { background: var(--mg-rule); }
-.mg-terminal__dot:nth-child(2) { background: var(--mg-rule); }
-.mg-terminal__dot:nth-child(3) { background: var(--mg-rule); }
 
 .mg-terminal__title {
   margin-left: auto;
   font-size: 0.75rem;
-  color: #6b6b76;
+  color: #7a7a85;
   letter-spacing: 0.04em;
 }
 
@@ -409,7 +393,7 @@ body {
 .mg-terminal__body .prompt  { color: #7eb6ff; user-select: none; }
 .mg-terminal__body .cmd     { color: #f5f5f7; }
 .mg-terminal__body .flag    { color: #84e1bc; }
-.mg-terminal__body .comment { color: #6b6b76; }
+.mg-terminal__body .comment { color: #7a7a85; }
 .mg-terminal__body .out     { color: #8b8b96; }
 .mg-terminal__body .accent  { color: #5eead4; }
 
@@ -898,10 +882,6 @@ html.is-landing .mg-landing-topbar {
 
 /* Mobile tuning */
 @media (max-width: 40rem) {
-  .mg-hero {
-    padding-block: 1.5rem 2rem;
-  }
-
   .mg-publications {
     gap: 1rem;
   }
@@ -934,10 +914,16 @@ html.is-landing .mg-landing-topbar {
   /* Only for section boundaries. --mg-rule is 8% and tuned for card
      borders; across 1440px on near-black it disappears. */
   --mg-rule-strong: rgba(255, 255, 255, 0.14);
+  /* The accent is 3.74:1 on white — fine for large italics, not for 0.72rem
+     eyebrows. Small text uses this instead. */
+  --mg-accent-text: var(--sl-color-accent);
+  --mg-accent-solid: var(--sl-color-accent);
 }
 
 :root[data-theme='light'] {
   --mg-rule-strong: rgba(10, 10, 14, 0.12);
+  --mg-accent-text: #0f766e;
+  --mg-accent-solid: #0f766e;
 }
 
 /* The landing sets its own width. The previous rule keyed off
@@ -1019,10 +1005,10 @@ html.is-landing .content-panel {
     gap: var(--mg-space-sm);
   }
 
-  .mg-sec__num {
-    position: static;
+  /* The eyebrow already carries this label once the rail is inline. */
+  .mg-sec__rail {
+    display: none;
   }
-
 }
 
 /* ----- Points ----- */
@@ -1283,7 +1269,7 @@ html.is-landing .content-panel {
   height: auto;
 }
 
-@media (max-width: 68rem) {
+@media (max-width: 78rem) {
   .mg-fig-wrap {
     -webkit-mask-image: linear-gradient(to right, #000 92%, transparent 100%);
     mask-image: linear-gradient(to right, #000 92%, transparent 100%);
@@ -1409,6 +1395,98 @@ html.is-landing .content-panel {
   html.is-landing {
     scroll-behavior: smooth;
   }
+}
+
+/* 13. Focus, contrast and motion ─────────────────────────── */
+/* There were no focus styles at all, and .mg-components { overflow: hidden }
+   clipped the UA ring on the primary keyboard path into the page. */
+.mg-btn:focus-visible,
+.mg-paper:focus-visible,
+.mg-shot:focus-visible,
+.mg-contributor__link:focus-visible,
+.mg-landing-nav a:focus-visible,
+.mg-landing-nav__docs:focus-visible,
+.mg-landing-brand:focus-visible,
+.mg-header-nav a:focus-visible,
+.mg-theme-switch button:focus-visible {
+  outline: 2px solid var(--sl-color-accent-high);
+  outline-offset: 2px;
+  border-radius: var(--mg-radius-sm);
+}
+
+.mg-component:focus-visible {
+  outline: 2px solid var(--sl-color-accent-high);
+  outline-offset: -3px;
+}
+
+/* Accent-on-white is 3.74:1; these are all normal-size text. */
+.mg-eyebrow,
+.mg-paper__venue,
+.mg-component__go,
+.mg-preset-card__name {
+  color: var(--mg-accent-text);
+}
+
+.mg-component:hover .mg-component__go,
+.mg-header-nav a:hover,
+.mg-header-nav a[aria-current='page'],
+.mg-landing-nav a:hover {
+  color: var(--mg-accent-text);
+}
+
+a.mg-btn--link {
+  color: var(--mg-accent-text);
+}
+
+a.mg-btn--primary {
+  background: var(--mg-accent-solid);
+  border-color: var(--mg-accent-solid);
+}
+
+a.mg-btn--primary:hover {
+  background: color-mix(in srgb, var(--mg-accent-solid) 88%, black);
+  border-color: color-mix(in srgb, var(--mg-accent-solid) 88%, black);
+}
+
+/* The reveal and smooth scroll were gated; the hover transforms were not. */
+@media (prefers-reduced-motion: reduce) {
+  .mg-paper,
+  .mg-contributor__link,
+  a.mg-btn,
+  .mg-component,
+  .mg-paper__cite::after {
+    transition: none;
+  }
+
+  .mg-paper:hover,
+  .mg-contributor__link:hover,
+  a.mg-btn:hover {
+    transform: none;
+  }
+}
+
+/* The mobile docs link had display rules and nothing else — no padding, no
+   target size, and it sat over scrolling content. */
+.mg-landing-nav__docs {
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  min-height: 2.4rem;
+  border-radius: 999px;
+  background: var(--sl-color-bg);
+  border: 1px solid var(--mg-rule);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--mg-text-body);
+  text-decoration: none !important;
+}
+
+/* The wordmark was the one part of the fixed bar with no backing, so page
+   content scrolled straight under it. */
+.mg-landing-brand {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--sl-color-bg);
+  border: 1px solid var(--mg-rule);
 }
 
 /* Figure internals */

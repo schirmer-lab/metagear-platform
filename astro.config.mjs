@@ -142,7 +142,21 @@ export default defineConfig({
                   }
                 }
               }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-              const observe = () => document.querySelectorAll('.mg-reveal').forEach((el) => io.observe(el));
+              // An anchor jump lands on a section that has not intersected yet,
+              // so without this you arrive at half a second of blank.
+              const revealNow = (sel) => {
+                const t = sel && sel.length > 1 && document.querySelector(sel);
+                if (!t) return;
+                const s = t.closest('.mg-reveal') || t;
+                s.classList.add('is-in');
+                io.unobserve(s);
+              };
+              const observe = () => {
+                document.querySelectorAll('.mg-reveal').forEach((el) => io.observe(el));
+                revealNow(location.hash);
+                document.querySelectorAll('.mg-landing-nav a[href^="#"], .mg-component[href^="#"]')
+                  .forEach((a) => a.addEventListener('click', () => revealNow(a.getAttribute('href'))));
+              };
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', observe, { once: true });
               } else { observe(); }
